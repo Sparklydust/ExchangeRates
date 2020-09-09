@@ -9,7 +9,6 @@
     }
   ],
   "defaultOptions" : {
-    "codeCoverage" : false,
     "targetForVariableExpansion" : {
       "containerPath" : "container:ExchangeRates.xcodeproj",
       "identifier" : "2A964F0F2508F3DC00EB7D6C",

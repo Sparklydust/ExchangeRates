@@ -2,6 +2,9 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
+## ExchangeRates ignored files
+ExchangeRates/Network.plist*
+
 ## User settings
 xcuserdata/
 

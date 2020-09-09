@@ -13,13 +13,17 @@
 		2A12372A25090B0F00868DAA /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A12372925090B0F00868DAA /* TabItem.swift */; };
 		2A49F1AE25090F68005A3985 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A49F1B025090F68005A3985 /* Localizable.strings */; };
 		2A49F1B225090F94005A3985 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1B125090F94005A3985 /* Localized.swift */; };
+		2A49F1B425091765005A3985 /* Network.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A49F1B325091765005A3985 /* Network.plist */; };
+		2A49F1B725091F56005A3985 /* NetworkAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1B625091F56005A3985 /* NetworkAPIManager.swift */; };
+		2A49F1BA25091FCC005A3985 /* NetworkPlistKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1B925091FCC005A3985 /* NetworkPlistKey.swift */; };
+		2A49F1BC2509202A005A3985 /* NetworkPlistValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1BB2509202A005A3985 /* NetworkPlistValue.swift */; };
+		2A49F1C1250926D0005A3985 /* NetworkAPIManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1C0250926D0005A3985 /* NetworkAPIManagerTests.swift */; };
 		2A964F142508F3DC00EB7D6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F132508F3DC00EB7D6C /* AppDelegate.swift */; };
 		2A964F162508F3DC00EB7D6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F152508F3DC00EB7D6C /* SceneDelegate.swift */; };
 		2A964F182508F3DC00EB7D6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F172508F3DC00EB7D6C /* ContentView.swift */; };
 		2A964F1A2508F3E300EB7D6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A964F192508F3E300EB7D6C /* Assets.xcassets */; };
 		2A964F1D2508F3E300EB7D6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A964F1C2508F3E300EB7D6C /* Preview Assets.xcassets */; };
 		2A964F202508F3E300EB7D6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A964F1E2508F3E300EB7D6C /* LaunchScreen.storyboard */; };
-		2A964F2B2508F3E300EB7D6C /* ExchangeRatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F2A2508F3E300EB7D6C /* ExchangeRatesTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,11 @@
 		2A12372925090B0F00868DAA /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		2A49F1AF25090F68005A3985 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A49F1B125090F94005A3985 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
+		2A49F1B325091765005A3985 /* Network.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Network.plist; sourceTree = "<group>"; };
+		2A49F1B625091F56005A3985 /* NetworkAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPIManager.swift; sourceTree = "<group>"; };
+		2A49F1B925091FCC005A3985 /* NetworkPlistKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPlistKey.swift; sourceTree = "<group>"; };
+		2A49F1BB2509202A005A3985 /* NetworkPlistValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPlistValue.swift; sourceTree = "<group>"; };
+		2A49F1C0250926D0005A3985 /* NetworkAPIManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPIManagerTests.swift; sourceTree = "<group>"; };
 		2A964F102508F3DC00EB7D6C /* ExchangeRates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeRates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A964F132508F3DC00EB7D6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		2A964F152508F3DC00EB7D6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,7 +58,6 @@
 		2A964F1F2508F3E300EB7D6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A964F212508F3E300EB7D6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A964F262508F3E300EB7D6C /* ExchangeRatesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExchangeRatesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A964F2A2508F3E300EB7D6C /* ExchangeRatesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesTests.swift; sourceTree = "<group>"; };
 		2A964F2C2508F3E300EB7D6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +85,7 @@
 				2A964F192508F3E300EB7D6C /* Assets.xcassets */,
 				2A964F1E2508F3E300EB7D6C /* LaunchScreen.storyboard */,
 				2A964F212508F3E300EB7D6C /* Info.plist */,
+				2A49F1B325091765005A3985 /* Network.plist */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";
@@ -127,6 +136,7 @@
 		2A12372825090AF100868DAA /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				2A49F1B825091FA9005A3985 /* Network */,
 				2A12372925090B0F00868DAA /* TabItem.swift */,
 			);
 			path = Enums;
@@ -147,6 +157,47 @@
 				2A49F1B125090F94005A3985 /* Localized.swift */,
 			);
 			path = Localizables;
+			sourceTree = "<group>";
+		};
+		2A49F1B525091F2E005A3985 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				2A49F1B625091F56005A3985 /* NetworkAPIManager.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		2A49F1B825091FA9005A3985 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2A49F1B925091FCC005A3985 /* NetworkPlistKey.swift */,
+				2A49F1BB2509202A005A3985 /* NetworkPlistValue.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		2A49F1BD25092654005A3985 /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				2A49F1BF250926AC005A3985 /* Tools */,
+			);
+			path = Cases;
+			sourceTree = "<group>";
+		};
+		2A49F1BE25092667005A3985 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				2A964F2C2508F3E300EB7D6C /* Info.plist */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		2A49F1BF250926AC005A3985 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				2A49F1C0250926D0005A3985 /* NetworkAPIManagerTests.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		2A964F072508F3DC00EB7D6C = {
@@ -175,6 +226,7 @@
 				2A12371C2508FD8A00868DAA /* MainDelegates */,
 				2A12372525090A0500868DAA /* Extensions */,
 				2A12372825090AF100868DAA /* Enums */,
+				2A49F1B525091F2E005A3985 /* Tools */,
 				2A49F1AB25090F1E005A3985 /* Localizables */,
 				2A12371D2508FDBC00868DAA /* Views */,
 				2A964F1B2508F3E300EB7D6C /* Preview Content */,
@@ -193,8 +245,8 @@
 		2A964F292508F3E300EB7D6C /* ExchangeRatesTests */ = {
 			isa = PBXGroup;
 			children = (
-				2A964F2A2508F3E300EB7D6C /* ExchangeRatesTests.swift */,
-				2A964F2C2508F3E300EB7D6C /* Info.plist */,
+				2A49F1BE25092667005A3985 /* SupportingFiles */,
+				2A49F1BD25092654005A3985 /* Cases */,
 			);
 			path = ExchangeRatesTests;
 			sourceTree = "<group>";
@@ -280,6 +332,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A49F1B425091765005A3985 /* Network.plist in Resources */,
 				2A964F202508F3E300EB7D6C /* LaunchScreen.storyboard in Resources */,
 				2A49F1AE25090F68005A3985 /* Localizable.strings in Resources */,
 				2A964F1D2508F3E300EB7D6C /* Preview Assets.xcassets in Resources */,
@@ -301,13 +354,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A49F1B725091F56005A3985 /* NetworkAPIManager.swift in Sources */,
 				2A12372725090A2F00868DAA /* Image+Name.swift in Sources */,
 				2A49F1B225090F94005A3985 /* Localized.swift in Sources */,
 				2A1237242509095100868DAA /* FavoritesView.swift in Sources */,
 				2A123722250908ED00868DAA /* MarketView.swift in Sources */,
+				2A49F1BA25091FCC005A3985 /* NetworkPlistKey.swift in Sources */,
 				2A12372A25090B0F00868DAA /* TabItem.swift in Sources */,
 				2A964F142508F3DC00EB7D6C /* AppDelegate.swift in Sources */,
 				2A964F162508F3DC00EB7D6C /* SceneDelegate.swift in Sources */,
+				2A49F1BC2509202A005A3985 /* NetworkPlistValue.swift in Sources */,
 				2A964F182508F3DC00EB7D6C /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,7 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A964F2B2508F3E300EB7D6C /* ExchangeRatesTests.swift in Sources */,
+				2A49F1C1250926D0005A3985 /* NetworkAPIManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
