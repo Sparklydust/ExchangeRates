@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MarketView.swift
 //  ExchangeRates
 //
 //  Created by Roland Lariotte on 09/09/2020.
@@ -8,24 +8,23 @@
 
 import SwiftUI
 
-//  MARK: ContentView
-/// Main application view entry that present
-/// the tab bar.
+//  MARK: MarketView
+/// Populates the exchanges rates in real time.
 ///
-struct ContentView: View {
+struct MarketView: View {
 
   var body: some View {
-    Text("ExchangeRates")
+    Text("MarketView")
   }
 }
 
 // MARK: - Previews
-struct ContentView_Previews: PreviewProvider {
+struct MarketView_Previews: PreviewProvider {
   static var previews: some View {
     Group {
-      ContentView()
+      MarketView()
 
-      ContentView()
+      MarketView()
         .preferredColorScheme(.dark)
     }
   }
