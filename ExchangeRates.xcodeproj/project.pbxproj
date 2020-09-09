@@ -18,6 +18,8 @@
 		2A49F1BA25091FCC005A3985 /* NetworkPlistKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1B925091FCC005A3985 /* NetworkPlistKey.swift */; };
 		2A49F1BC2509202A005A3985 /* NetworkPlistValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1BB2509202A005A3985 /* NetworkPlistValue.swift */; };
 		2A49F1C1250926D0005A3985 /* NetworkAPIManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1C0250926D0005A3985 /* NetworkAPIManagerTests.swift */; };
+		2A49F1C925096EDA005A3985 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1C825096EDA005A3985 /* NetworkRequest.swift */; };
+		2A49F1CB25096F87005A3985 /* NetworkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1CA25096F87005A3985 /* NetworkEndpoint.swift */; };
 		2A964F142508F3DC00EB7D6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F132508F3DC00EB7D6C /* AppDelegate.swift */; };
 		2A964F162508F3DC00EB7D6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F152508F3DC00EB7D6C /* SceneDelegate.swift */; };
 		2A964F182508F3DC00EB7D6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F172508F3DC00EB7D6C /* ContentView.swift */; };
@@ -49,6 +51,8 @@
 		2A49F1B925091FCC005A3985 /* NetworkPlistKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPlistKey.swift; sourceTree = "<group>"; };
 		2A49F1BB2509202A005A3985 /* NetworkPlistValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPlistValue.swift; sourceTree = "<group>"; };
 		2A49F1C0250926D0005A3985 /* NetworkAPIManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPIManagerTests.swift; sourceTree = "<group>"; };
+		2A49F1C825096EDA005A3985 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		2A49F1CA25096F87005A3985 /* NetworkEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndpoint.swift; sourceTree = "<group>"; };
 		2A964F102508F3DC00EB7D6C /* ExchangeRates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeRates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A964F132508F3DC00EB7D6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		2A964F152508F3DC00EB7D6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +176,7 @@
 			children = (
 				2A49F1B925091FCC005A3985 /* NetworkPlistKey.swift */,
 				2A49F1BB2509202A005A3985 /* NetworkPlistValue.swift */,
+				2A49F1CA25096F87005A3985 /* NetworkEndpoint.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -198,6 +203,22 @@
 				2A49F1C0250926D0005A3985 /* NetworkAPIManagerTests.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		2A49F1C625096EA8005A3985 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2A49F1C725096EC4005A3985 /* Network */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2A49F1C725096EC4005A3985 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2A49F1C825096EDA005A3985 /* NetworkRequest.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		2A964F072508F3DC00EB7D6C = {
@@ -228,6 +249,7 @@
 				2A12372825090AF100868DAA /* Enums */,
 				2A49F1B525091F2E005A3985 /* Tools */,
 				2A49F1AB25090F1E005A3985 /* Localizables */,
+				2A49F1C625096EA8005A3985 /* Services */,
 				2A12371D2508FDBC00868DAA /* Views */,
 				2A964F1B2508F3E300EB7D6C /* Preview Content */,
 			);
@@ -355,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A49F1B725091F56005A3985 /* NetworkAPIManager.swift in Sources */,
+				2A49F1CB25096F87005A3985 /* NetworkEndpoint.swift in Sources */,
 				2A12372725090A2F00868DAA /* Image+Name.swift in Sources */,
 				2A49F1B225090F94005A3985 /* Localized.swift in Sources */,
 				2A1237242509095100868DAA /* FavoritesView.swift in Sources */,
@@ -364,6 +387,7 @@
 				2A964F142508F3DC00EB7D6C /* AppDelegate.swift in Sources */,
 				2A964F162508F3DC00EB7D6C /* SceneDelegate.swift in Sources */,
 				2A49F1BC2509202A005A3985 /* NetworkPlistValue.swift in Sources */,
+				2A49F1C925096EDA005A3985 /* NetworkRequest.swift in Sources */,
 				2A964F182508F3DC00EB7D6C /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
