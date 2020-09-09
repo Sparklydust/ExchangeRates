@@ -26,12 +26,12 @@ enum NetworkEndpoint {
 
   case live
 
-  var url: URL? {
+  var url: URL {
     switch self {
     case .live:
       let liveURL = NetworkEndpoint.baseURL
         .flatMap {
-          URL(string: $0.absoluteString + "live" + NetworkEndpoint.accessKey) }
+          URL(string: $0.absoluteString + "live" + NetworkEndpoint.accessKey) }!
       return liveURL
     }
   }

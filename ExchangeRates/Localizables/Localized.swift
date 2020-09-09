@@ -27,6 +27,5 @@ extension Localized {
 
   // MARK: Tab bar item
   static var market: LSK { return "market" }
-
   static var favorites: LSK { return "favorites" }
 }
