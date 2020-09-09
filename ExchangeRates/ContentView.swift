@@ -8,14 +8,25 @@
 
 import SwiftUI
 
+//  MARK: ContentView
+/// Main application view entry that present
+/// the tab bar.
+///
 struct ContentView: View {
+
   var body: some View {
     Text("ExchangeRates")
   }
 }
 
+// MARK: - Previews
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ContentView()
+    Group {
+      ContentView()
+
+      ContentView()
+        .preferredColorScheme(.dark)
+    }
   }
 }
