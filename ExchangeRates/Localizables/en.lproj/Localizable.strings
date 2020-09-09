@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  ExchangeRates
+
+  Created by Roland Lariotte on 09/09/2020.
+  Copyright © 2020 Roland Lariotte. All rights reserved.
+*/
+
+// MARK: - English Translation keys
+
+// MARK: Tab bar item
+"market" = "Market";
+"favorites" = "Favorites";

@@ -21,14 +21,14 @@ struct ContentView: View {
 
       MarketView()
         .tabItem {
-          Text("Market")
+          Text(Localized.market)
           Image.market
       }
       .tag(TabItem.market)
 
       FavoritesView()
         .tabItem {
-          Text("Favorites")
+          Text(Localized.favorites)
           Image.favorites
       }
       .tag(TabItem.favorites)
