@@ -13,11 +13,10 @@ import SwiftUI
 /// a button to save rates to favorites
 struct RatesCell: View {
 
+  @EnvironmentObject var viewModel: RatesViewModel
+
   @State var symbol: String
   @State var price: Double
-  @State var rateArrow: Image
-  @State var rateColor: Color
-  @State var currency = "USD"
 
   @State var isPriceNeutral = true
 
@@ -31,32 +30,16 @@ struct RatesCell: View {
       Spacer()
 
       HStack(alignment: .center, spacing: 16) {
-        Text(format(value: price, currency: currency))
+        Text(viewModel.populateFormatted(price))
           .font(.headline)
           .fontWeight(.medium)
 
-        rateArrow
+        viewModel.rateArrow
       }
-      .foregroundColor(rateColor)
+      .foregroundColor(viewModel.rateColor)
       .padding(.trailing, 8)
     }
     .padding(.vertical, 16)
-  }
-}
-
-extension RatesCell {
-  func format(value: Double, currency: String) -> String {
-
-    let formatter = NumberFormatter()
-    formatter.usesGroupingSeparator = true
-    formatter.locale = .current
-    formatter.numberStyle = .currency
-    formatter.currencyCode = currency
-
-    guard let formattedValue = formatter.string(from: NSNumber(value: value)) else {
-      return String()
-    }
-    return formattedValue
   }
 }
 
@@ -65,14 +48,10 @@ struct RatesCell_Previews: PreviewProvider {
   static var previews: some View {
     Group {
       RatesCell(symbol: "AUSDUSD",
-                price: 234.34,
-                rateArrow: Image(systemName: "arrow.up"),
-                rateColor: .green)
+                price: 234.34)
 
       RatesCell(symbol: "AUSDUSD",
-                price: 234.34,
-                rateArrow: Image(systemName: "arrow.down"),
-                rateColor: .red)
+                price: 234.34)
         .preferredColorScheme(.dark)
     }
   }

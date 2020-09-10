@@ -15,10 +15,10 @@ import Foundation
 ///
 struct RatesData: Codable, Hashable, RatesDataProtocol {
 
-  var success: Bool
-  var terms: String
-  var privacy: String
-  var timestamp: Int
-  var source: String
-  var quotes: [String: Double]
+  var success = false
+  var terms = String()
+  var privacy = String()
+  var timestamp = Int()
+  var source = String()
+  var quotes = [String: Double]()
 }

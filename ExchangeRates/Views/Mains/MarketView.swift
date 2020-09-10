@@ -30,13 +30,19 @@ struct MarketView: View {
             List(viewModel.newRates.sorted(by: <), id: \.key) { data in
               NavigationLink(destination: Text("DetailsView")) {
                 RatesCell(symbol: data.key,
-                          price: data.value,
-                          rateArrow: self.viewModel.rateArrow,
-                          rateColor: self.viewModel.rateColor)
+                          price: data.value)
               }
             }
             .listStyle(PlainListStyle())
           }
+          HStack(alignment: .center) {
+            Spacer()
+            Text("\(viewModel.date.formatted())")
+              .font(.footnote)
+              .fontWeight(.medium)
+            Spacer()
+          }
+          .padding(.vertical, 8)
         }
         .navigationBarTitle(Localized.market, displayMode: .large)
       }

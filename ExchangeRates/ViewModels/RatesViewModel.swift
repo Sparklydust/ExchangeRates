@@ -22,13 +22,16 @@ final class RatesViewModel: ObservableObject {
   @Published var isLoading = false
 
   // Timer
+  @Published var date = Date()
   @Published var timer = Timer
-    .publish(every: 61, on: .main, in: .common)
+    .publish(every: 1, on: .main, in: .common)
     .autoconnect()
 
   // Data
+  @Published var rates = RatesData()
   @Published var oldRates = [String: Double]()
   @Published var newRates = [String: Double]()
+  @Published var currency = String()
 
   // UX
   @Published var rateArrow = Image(systemName: "arrow.up")
@@ -46,18 +49,38 @@ extension RatesViewModel {
     showActivityIndicator(true)
     NetworkRequest<RatesData>(.live).download()
       .sink(
-        receiveCompletion: { completion in
-          switch completion {
-          case .failure:
-            self.showNetworkAlert = true
-          case .finished:
-            self.showActivityIndicator(false)
-            break }},
-        receiveValue: { data in
+        receiveCompletion: { [weak self] completion in
+          guard let self = self else { return }
+          self.handle(completion) },
+        receiveValue: { [weak self] data in
+          guard let self = self else { return }
           withAnimation(.easeInOut) {
-            self.resetOldRatesNewRates()
-            self.newRates = data.quotes } })
+            self.handle(data) } })
       .store(in: &subscriptions)
+  }
+
+  /// Performe actions on the rates data coming
+  /// from the api where needed.
+  ///
+  func handle(_ data: RatesData) {
+    resetOldRatesNewRates()
+    newRates = data.quotes
+    rates = data
+    setCurrency()
+    convertTimestampToDate()
+  }
+
+  /// Performe actions on the end of the api call
+  /// when finished or on failure.
+  ///
+  func handle(_ completion: Subscribers.Completion<NetworkError>) {
+    switch completion {
+    case .failure:
+      showNetworkAlert = true
+    case .finished:
+      showActivityIndicator(false)
+      break
+    }
   }
 
   /// Trigger the UIKit navigfation controller
@@ -73,6 +96,12 @@ extension RatesViewModel {
   func resetOldRatesNewRates() {
     oldRates = newRates
     newRates = [String: Double]()
+  }
+
+  /// Setup the currency of the user coming from
+  /// the api.
+  func setCurrency() {
+    currency = rates.source
   }
 }
 
@@ -103,8 +132,14 @@ extension RatesViewModel {
     showTryAgainButton = false
     timer.upstream
       .connect()
-      .store(in: &self.subscriptions)
+      .store(in: &subscriptions)
     downloadLiveRates()
+  }
+
+  /// Convert timestamp value to a readable Date format.
+  ///
+  func convertTimestampToDate() {
+    _ = date.addingTimeInterval(TimeInterval(rates.timestamp))
   }
 }
 
@@ -123,5 +158,25 @@ extension RatesViewModel {
           secondaryButton: .default(Text(Localized.tryAgain)) {
             self.tryAgainUpstreamTimer()
       })
+  }
+}
+
+// MARK: NumberFormatter
+extension RatesViewModel {
+  /// Format the price and currency depending
+  /// on user localization.
+  ///
+  func populateFormatted(_ price: Double) -> String {
+
+    let formatter = NumberFormatter()
+    formatter.usesGroupingSeparator = true
+    formatter.locale = .current
+    formatter.numberStyle = .currency
+    formatter.currencyCode = currency
+
+    guard let formattedValue = formatter.string(from: NSNumber(value: price)) else {
+      return String()
+    }
+    return formattedValue
   }
 }
