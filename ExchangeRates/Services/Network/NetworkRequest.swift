@@ -18,8 +18,8 @@ import Combine
 ///
 final class NetworkRequest<Resource> where Resource: Codable {
 
-  private var resourceURL: NetworkEndpoint
-  private var resourceSession: URLSession
+  var resourceURL: NetworkEndpoint
+  var resourceSession: URLSession
 
   init(_ resourceURL: NetworkEndpoint,
        resourceSession: URLSession = URLSession(configuration: .default)) {
@@ -34,15 +34,8 @@ final class NetworkRequest<Resource> where Resource: Codable {
 }
 
 // MARK: - Network Requests
-extension NetworkRequest {
+extension NetworkRequest: NetworkRequestProtocol {
 
-  /// Loading data request for any Resource type.
-  ///
-  /// Download any data type using a GET request with
-  /// error handling.
-  ///
-  /// - Returns: one data
-  ///
   func download() -> AnyPublisher<Resource, NetworkError> {
 
     resourceSession
