@@ -13,7 +13,7 @@ import Foundation
 ///
 /// Populates live exchange rates from currencylayer.com.
 ///
-struct RatesData: Codable, RatesDataProtocol {
+struct RatesData: Codable, Hashable, RatesDataProtocol {
 
   var success: Bool
   var terms: String

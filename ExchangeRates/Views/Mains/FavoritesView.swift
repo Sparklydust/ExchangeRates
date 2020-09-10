@@ -13,9 +13,9 @@ import SwiftUI
 ///
 struct FavoritesView: View {
 
-    var body: some View {
-        Text("FavoritesView")
-    }
+  var body: some View {
+    Text("FavoritesView")
+  }
 }
 
 // MARK: - Previews

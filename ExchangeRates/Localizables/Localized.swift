@@ -22,10 +22,16 @@ enum Localized {
   typealias LSK = LocalizedStringKey
 }
 
-// MARK: - Translation keys
+// MARK: - Translation Keys
 extension Localized {
 
-  // MARK: Tab bar item
+  // MARK: Tab Bar Item
   static var market: LSK { return "market" }
   static var favorites: LSK { return "favorites" }
+
+  // MARK: Error Title
+  static var networkErrorTitle: LSK { return "networkErrorTitle" }
+
+  // MARK: Error Message
+  static var networkErrorMessage: LSK { return "networkErrorMessage" }
 }

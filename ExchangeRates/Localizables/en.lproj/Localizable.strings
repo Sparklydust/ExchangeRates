@@ -8,6 +8,12 @@
 
 // MARK: - English Translation keys
 
-// MARK: Tab bar item
+// MARK: Tab Bar Item
 "market" = "Market";
 "favorites" = "Favorites";
+
+// MARK: Error Title
+"networkErrorTitle" = "Network Error";
+
+// MARK: Error Message
+"networkErrorMessage" = "There was an issue loading the live rates.\nThanks to try again later.";

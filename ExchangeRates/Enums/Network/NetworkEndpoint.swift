@@ -22,7 +22,7 @@ enum NetworkEndpoint {
   static let apiKey = NetworkAPIManager.retrieve(.apiKey, .currencylayer)
 
   /// URL key path access value for api call
-  static let accessKey = "?access_Key=\(NetworkEndpoint.apiKey)"
+  static let accessKey = "?access_key=\(NetworkEndpoint.apiKey)"
 
   case live
 
