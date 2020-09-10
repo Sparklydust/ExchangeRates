@@ -14,37 +14,25 @@ import Combine
 ///
 struct MarketView: View {
 
-  @State var subscriptions = Set<AnyCancellable>()
-
-  @State var showNetworkAlert = false
-  @State var showTryAgainButton = false
-  @State var isLoading = false
-
-  @State var oldRates = [String: Double]()
-  @State var newRates = [String: Double]()
-
-  @State var rateArrow = Image(systemName: "arrow.up")
-  @State var rateColor: Color = .blue
-
-  let timer = Timer.publish(every: 61, on: .main, in: .common).autoconnect()
+  @EnvironmentObject var viewModel: RatesViewModel
 
   var body: some View {
     NavigationView {
       ZStack(alignment: .center) {
-        if isLoading {
-          Spinner(isAnimating: isLoading, style: .large, color: .blue)
+        if viewModel.isLoading {
+          Spinner(isAnimating: viewModel.isLoading, style: .large, color: .blue)
         }
         VStack {
-          if showTryAgainButton {
-            TryAgainButton(action: { self.tryAgainUpstreamTimer() })
+          if viewModel.showTryAgainButton {
+            TryAgainButton(action: { self.viewModel.tryAgainUpstreamTimer() })
           }
           else {
-            List(newRates.sorted(by: <), id: \.key) { data in
+            List(viewModel.newRates.sorted(by: <), id: \.key) { data in
               NavigationLink(destination: Text("DetailsView")) {
                 RatesCell(symbol: data.key,
                           price: data.value,
-                          rateArrow: self.rateArrow,
-                          rateColor: self.rateColor)
+                          rateArrow: self.viewModel.rateArrow,
+                          rateColor: self.viewModel.rateColor)
               }
             }
             .listStyle(PlainListStyle())
@@ -54,75 +42,17 @@ struct MarketView: View {
       }
     }
     .onAppear {
-      self.downloadLiveRates()
+      self.viewModel.downloadLiveRates()
     }
-    .onReceive(timer) { _ in
-      self.downloadLiveRates()
+    .onReceive(viewModel.timer) { _ in
+      self.viewModel.downloadLiveRates()
     }
     .onDisappear {
-      self.disconnectUpstreamTimer()
+      self.viewModel.disconnectUpstreamTimer()
     }
-    .alert(isPresented: $showNetworkAlert) {
-      Alert(title: Text(Localized.networkErrorTitle),
-            message: Text(Localized.networkErrorMessage),
-            primaryButton: .cancel {
-              self.cancelUpstreamTimer() },
-            secondaryButton: .default(Text(Localized.tryAgain)) {
-              self.tryAgainUpstreamTimer()
-        })
+    .alert(isPresented: $viewModel.showNetworkAlert) {
+      self.viewModel.showNetworkErrorAlert()
     }
-  }
-}
-
-extension MarketView {
-  func downloadLiveRates() {
-    showActivityIndicator(true)
-    NetworkRequest<RatesData>(.live).download()
-      .sink(
-        receiveCompletion: { completion in
-          switch completion {
-          case .failure(let error):
-            print(error)
-            self.showNetworkAlert = true
-          case .finished:
-            self.showActivityIndicator(false)
-            break }},
-        receiveValue: { data in
-          withAnimation(.easeInOut) {
-            self.resetOldRatesNewRates()
-            self.newRates = data.quotes
-          }
-          print(data.quotes.sorted(by: <)) })
-      .store(in: &subscriptions)
-  }
-
-  func showActivityIndicator(_ action: Bool) {
-    isLoading = action
-  }
-
-  func resetOldRatesNewRates() {
-    oldRates = newRates
-    newRates = [String: Double]()
-  }
-
-  func cancelUpstreamTimer() {
-    self.isLoading = false
-    showTryAgainButton = true
-    disconnectUpstreamTimer()
-  }
-
-  func disconnectUpstreamTimer() {
-    timer.upstream
-      .connect()
-      .cancel()
-  }
-
-  func tryAgainUpstreamTimer() {
-    showTryAgainButton = false
-    timer.upstream
-      .connect()
-      .store(in: &self.subscriptions)
-    downloadLiveRates()
   }
 }
 
