@@ -12,6 +12,9 @@
 "market" = "Market";
 "favorites" = "Favorites";
 
+// MARK: Button
+"tryAgain" = "Try Again";
+
 // MARK: Error Title
 "networkErrorTitle" = "Network Error";
 

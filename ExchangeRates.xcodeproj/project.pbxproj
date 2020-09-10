@@ -29,6 +29,8 @@
 		2A49F1EA250A0679005A3985 /* RatesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1E9250A0679005A3985 /* RatesData.swift */; };
 		2A49F1EC250A0E80005A3985 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1EB250A0E80005A3985 /* MockURLSessionDataTask.swift */; };
 		2A49F1EF250A1AC4005A3985 /* RatesDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1EE250A1AC4005A3985 /* RatesDataProtocol.swift */; };
+		2A49F1F2250A474B005A3985 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1F1250A474B005A3985 /* Spinner.swift */; };
+		2A49F1F8250A47D8005A3985 /* TryAgainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1F7250A47D8005A3985 /* TryAgainButton.swift */; };
 		2A964F142508F3DC00EB7D6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F132508F3DC00EB7D6C /* AppDelegate.swift */; };
 		2A964F162508F3DC00EB7D6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F152508F3DC00EB7D6C /* SceneDelegate.swift */; };
 		2A964F182508F3DC00EB7D6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F172508F3DC00EB7D6C /* ContentView.swift */; };
@@ -71,6 +73,8 @@
 		2A49F1E9250A0679005A3985 /* RatesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesData.swift; sourceTree = "<group>"; };
 		2A49F1EB250A0E80005A3985 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 		2A49F1EE250A1AC4005A3985 /* RatesDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesDataProtocol.swift; sourceTree = "<group>"; };
+		2A49F1F1250A474B005A3985 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		2A49F1F7250A47D8005A3985 /* TryAgainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryAgainButton.swift; sourceTree = "<group>"; };
 		2A964F102508F3DC00EB7D6C /* ExchangeRates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeRates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A964F132508F3DC00EB7D6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		2A964F152508F3DC00EB7D6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 			children = (
 				2A12372B25090BF100868DAA /* Navigations */,
 				2A123720250908CA00868DAA /* Mains */,
+				2A49F1F3250A4798005A3985 /* Components */,
+				2A49F1F0250A4726005A3985 /* UIViewRepresentable */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -324,6 +330,30 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		2A49F1F0250A4726005A3985 /* UIViewRepresentable */ = {
+			isa = PBXGroup;
+			children = (
+				2A49F1F1250A474B005A3985 /* Spinner.swift */,
+			);
+			path = UIViewRepresentable;
+			sourceTree = "<group>";
+		};
+		2A49F1F3250A4798005A3985 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2A49F1F4250A47A6005A3985 /* Buttons */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2A49F1F4250A47A6005A3985 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				2A49F1F7250A47D8005A3985 /* TryAgainButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		2A964F072508F3DC00EB7D6C = {
 			isa = PBXGroup;
 			children = (
@@ -485,6 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A49F1B725091F56005A3985 /* NetworkAPIManager.swift in Sources */,
+				2A49F1F2250A474B005A3985 /* Spinner.swift in Sources */,
 				2A49F1EF250A1AC4005A3985 /* RatesDataProtocol.swift in Sources */,
 				2A49F1D125098426005A3985 /* NetworkError.swift in Sources */,
 				2A49F1CB25096F87005A3985 /* NetworkEndpoint.swift in Sources */,
@@ -494,6 +525,7 @@
 				2A1237242509095100868DAA /* FavoritesView.swift in Sources */,
 				2A123722250908ED00868DAA /* MarketView.swift in Sources */,
 				2A49F1BA25091FCC005A3985 /* NetworkPlistKey.swift in Sources */,
+				2A49F1F8250A47D8005A3985 /* TryAgainButton.swift in Sources */,
 				2A49F1DC2509FA12005A3985 /* NetworkRequestProtocol.swift in Sources */,
 				2A12372A25090B0F00868DAA /* TabItem.swift in Sources */,
 				2A964F142508F3DC00EB7D6C /* AppDelegate.swift in Sources */,

@@ -18,27 +18,49 @@ struct MarketView: View {
 
   @State var rates: RatesData!
   @State var showNetworkAlert = false
+  @State var showTryAgainButton = false
+  @State var isLoading = false
+
+  let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
   var body: some View {
     NavigationView {
-      VStack {
-        Text("MarketView")
+      ZStack(alignment: .center) {
+        if isLoading {
+          Spinner(isAnimating: isLoading, style: .large, color: .blue)
+        }
+        VStack {
+          if showTryAgainButton {
+            TryAgainButton(action: { self.tryAgainUpstreamTimer() })
+          }
+          else {
+            Text("MarketView")
+          }
+        }
+        .navigationBarTitle(Localized.market)
       }
-      .navigationBarTitle(Localized.market)
     }
-    .onAppear {
+    .onReceive(timer) { _ in
       self.downloadLiveRates()
+    }
+    .onDisappear {
+      self.disconnectUpstreamTimer()
     }
     .alert(isPresented: $showNetworkAlert) {
       Alert(title: Text(Localized.networkErrorTitle),
             message: Text(Localized.networkErrorMessage),
-            dismissButton: .none)
+            primaryButton: .cancel {
+              self.cancelUpstreamTimer() },
+            secondaryButton: .default(Text(Localized.tryAgain)) {
+              self.tryAgainUpstreamTimer()
+        })
     }
   }
 }
 
 extension MarketView {
   func downloadLiveRates() {
+    isLoading = true
     NetworkRequest<RatesData>(.live).download()
       .sink(
         receiveCompletion: { completion in
@@ -47,11 +69,29 @@ extension MarketView {
             print(NetworkEndpoint.live.url)
             self.showNetworkAlert = true
           case .finished:
+            self.isLoading = false
             break }},
         receiveValue: { data in
           self.rates = data
           print(self.rates.quotes) })
       .store(in: &subscriptions)
+  }
+
+  func cancelUpstreamTimer() {
+    self.isLoading = false
+    showTryAgainButton = true
+    disconnectUpstreamTimer()
+  }
+
+  func disconnectUpstreamTimer() {
+    timer.upstream.connect().cancel()
+  }
+
+  func tryAgainUpstreamTimer() {
+    showTryAgainButton = false
+    timer.upstream.connect()
+      .store(in: &self.subscriptions)
+    downloadLiveRates()
   }
 }
 
