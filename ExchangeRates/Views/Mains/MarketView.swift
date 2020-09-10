@@ -16,12 +16,17 @@ struct MarketView: View {
 
   @State var subscriptions = Set<AnyCancellable>()
 
-  @State var rates: RatesData!
   @State var showNetworkAlert = false
   @State var showTryAgainButton = false
   @State var isLoading = false
 
-  let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+  @State var oldRates = [String: Double]()
+  @State var newRates = [String: Double]()
+
+  @State var rateArrow = Image(systemName: "arrow.up")
+  @State var rateColor: Color = .blue
+
+  let timer = Timer.publish(every: 61, on: .main, in: .common).autoconnect()
 
   var body: some View {
     NavigationView {
@@ -34,11 +39,22 @@ struct MarketView: View {
             TryAgainButton(action: { self.tryAgainUpstreamTimer() })
           }
           else {
-            Text("MarketView")
+            List(newRates.sorted(by: <), id: \.key) { data in
+              NavigationLink(destination: Text("DetailsView")) {
+                RatesCell(symbol: data.key,
+                          price: data.value,
+                          rateArrow: self.rateArrow,
+                          rateColor: self.rateColor)
+              }
+            }
+            .listStyle(PlainListStyle())
           }
         }
-        .navigationBarTitle(Localized.market)
+        .navigationBarTitle(Localized.market, displayMode: .large)
       }
+    }
+    .onAppear {
+      self.downloadLiveRates()
     }
     .onReceive(timer) { _ in
       self.downloadLiveRates()
@@ -60,21 +76,33 @@ struct MarketView: View {
 
 extension MarketView {
   func downloadLiveRates() {
-    isLoading = true
+    showActivityIndicator(true)
     NetworkRequest<RatesData>(.live).download()
       .sink(
         receiveCompletion: { completion in
           switch completion {
-          case .failure:
-            print(NetworkEndpoint.live.url)
+          case .failure(let error):
+            print(error)
             self.showNetworkAlert = true
           case .finished:
-            self.isLoading = false
+            self.showActivityIndicator(false)
             break }},
         receiveValue: { data in
-          self.rates = data
-          print(self.rates.quotes) })
+          withAnimation(.easeInOut) {
+            self.resetOldRatesNewRates()
+            self.newRates = data.quotes
+          }
+          print(data.quotes.sorted(by: <)) })
       .store(in: &subscriptions)
+  }
+
+  func showActivityIndicator(_ action: Bool) {
+    isLoading = action
+  }
+
+  func resetOldRatesNewRates() {
+    oldRates = newRates
+    newRates = [String: Double]()
   }
 
   func cancelUpstreamTimer() {
@@ -84,12 +112,15 @@ extension MarketView {
   }
 
   func disconnectUpstreamTimer() {
-    timer.upstream.connect().cancel()
+    timer.upstream
+      .connect()
+      .cancel()
   }
 
   func tryAgainUpstreamTimer() {
     showTryAgainButton = false
-    timer.upstream.connect()
+    timer.upstream
+      .connect()
       .store(in: &self.subscriptions)
     downloadLiveRates()
   }
