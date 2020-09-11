@@ -32,14 +32,21 @@ struct FavoritesView: View {
               TryAgainButton(action: { self.viewModel.tryAgainUpstreamTimer() })
             }
             else {
-              List(viewModel.newFavoriteRates.sorted(by: <), id: \.key) { data in
-                RatesCell(symbol: data.key,
-                          price: data.value)
+              List {
+                ForEach(viewModel.newFavoriteRates.sorted(by: <), id: \.key) { data in
+                  RatesCell(symbol: data.key,
+                            price: data.value)
+                }
+                .onDelete { indexSet in
+                  self.viewModel.deleteFavorite(from: self.savedRates,
+                                                at: indexSet)
+                }
               }
             }
           }
         }
         .navigationBarTitle(Localized.favorites, displayMode: .large)
+        .navigationBarItems(trailing: EditButton())
 
         if viewModel.isLoading {
           Spinner(isAnimating: viewModel.isLoading, style: .large, color: .blue)

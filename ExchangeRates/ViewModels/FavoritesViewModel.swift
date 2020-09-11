@@ -102,6 +102,20 @@ extension FavoritesViewModel {
   }
 }
 
+// MARK: - CoreData
+extension FavoritesViewModel {
+  /// Delete saved rate from user action in table view
+  /// by swiping the cell or using the edit button.
+  ///
+  func deleteFavorite(from savedRates: FetchedResults<Rate>, at indexSet: IndexSet) {
+    for i in indexSet {
+      let rate = savedRates[i]
+      coreDataService.delete(rate: rate)
+      downloadFavoritesLiveRates()
+    }
+  }
+}
+
 // MARK: - Timer
 extension FavoritesViewModel {
   /// User cancel timer from Alert to stop making network

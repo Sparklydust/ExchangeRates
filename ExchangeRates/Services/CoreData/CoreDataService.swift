@@ -55,8 +55,8 @@ extension CoreDataService {
 
   /// Delete Core Data Rate model in memory.
   ///
-  func delete(symbol: NSManagedObject) {
-    managedObjectContext.delete(symbol)
+  func delete(rate: NSManagedObject) {
+    managedObjectContext.delete(rate)
     coreDataStack.saveContext()
   }
 }

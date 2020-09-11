@@ -25,6 +25,8 @@ struct Spinner: UIViewRepresentable {
   }
 
   func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<Spinner>) {
-    isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
+    isAnimating
+      ? uiView.startAnimating()
+      : uiView.stopAnimating()
   }
 }
