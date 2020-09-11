@@ -12,6 +12,9 @@
 "market" = "Market";
 "favorites" = "Favorites";
 
+// MARK: Navigation title
+"details" = "Details";
+
 // MARK: Button
 "tryAgain" = "Try Again";
 

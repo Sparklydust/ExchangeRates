@@ -29,6 +29,9 @@ extension Localized {
   static var market: LSK { return "market" }
   static var favorites: LSK { return "favorites" }
 
+  // MARK: Navigation title
+  static var details: LSK { return "details" }
+
   // MARK: Button
   static var tryAgain: LSK { return "tryAgain" }
 

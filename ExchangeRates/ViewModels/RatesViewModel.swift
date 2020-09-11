@@ -36,6 +36,8 @@ final class RatesViewModel: ObservableObject {
   // UX
   @Published var rateArrow = Image(systemName: "arrow.up")
   @Published var rateColor: Color = .blue
+  @Published var detailRateArrow = Image(systemName: "arrow.up")
+  @Published var detailRateColor: Color = .blue
 }
 
 // MARK: - Network call
