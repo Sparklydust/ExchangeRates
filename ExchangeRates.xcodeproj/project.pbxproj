@@ -40,6 +40,8 @@
 		2A49F20C250B56BD005A3985 /* View+Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F20B250B56BD005A3985 /* View+Add.swift */; };
 		2A49F210250B5763005A3985 /* SearchBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F20F250B5763005A3985 /* SearchBarModifier.swift */; };
 		2A49F213250B5FC8005A3985 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F212250B5FC8005A3985 /* DetailsView.swift */; };
+		2A49F218250B6DE0005A3985 /* ExchangeRates.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F216250B6DE0005A3985 /* ExchangeRates.xcdatamodeld */; };
+		2A49F21A250B76E4005A3985 /* AppDelegate+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F219250B76E4005A3985 /* AppDelegate+CoreData.swift */; };
 		2A964F142508F3DC00EB7D6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F132508F3DC00EB7D6C /* AppDelegate.swift */; };
 		2A964F162508F3DC00EB7D6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F152508F3DC00EB7D6C /* SceneDelegate.swift */; };
 		2A964F182508F3DC00EB7D6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F172508F3DC00EB7D6C /* ContentView.swift */; };
@@ -93,6 +95,8 @@
 		2A49F20B250B56BD005A3985 /* View+Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Add.swift"; sourceTree = "<group>"; };
 		2A49F20F250B5763005A3985 /* SearchBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarModifier.swift; sourceTree = "<group>"; };
 		2A49F212250B5FC8005A3985 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		2A49F217250B6DE0005A3985 /* ExchangeRates.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExchangeRates.xcdatamodel; sourceTree = "<group>"; };
+		2A49F219250B76E4005A3985 /* AppDelegate+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+CoreData.swift"; sourceTree = "<group>"; };
 		2A964F102508F3DC00EB7D6C /* ExchangeRates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeRates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A964F132508F3DC00EB7D6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		2A964F152508F3DC00EB7D6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 		2A12372525090A0500868DAA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2A49F219250B76E4005A3985 /* AppDelegate+CoreData.swift */,
 				2A12372625090A2F00868DAA /* Image+Name.swift */,
 				2A49F204250ACBBE005A3985 /* Date+Formatter.swift */,
 				2A49F20B250B56BD005A3985 /* View+Add.swift */,
@@ -260,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				2A49F1C725096EC4005A3985 /* Network */,
+				2A49F215250B6DA0005A3985 /* CoreData */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -444,6 +450,14 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
+		2A49F215250B6DA0005A3985 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2A49F216250B6DE0005A3985 /* ExchangeRates.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		2A964F072508F3DC00EB7D6C = {
 			isa = PBXGroup;
 			children = (
@@ -609,6 +623,7 @@
 				2A49F1F2250A474B005A3985 /* Spinner.swift in Sources */,
 				2A49F1EF250A1AC4005A3985 /* RatesDataProtocol.swift in Sources */,
 				2A49F1D125098426005A3985 /* NetworkError.swift in Sources */,
+				2A49F218250B6DE0005A3985 /* ExchangeRates.xcdatamodeld in Sources */,
 				2A49F1CB25096F87005A3985 /* NetworkEndpoint.swift in Sources */,
 				2A49F1EA250A0679005A3985 /* RatesData.swift in Sources */,
 				2A12372725090A2F00868DAA /* Image+Name.swift in Sources */,
@@ -619,6 +634,7 @@
 				2A49F213250B5FC8005A3985 /* DetailsView.swift in Sources */,
 				2A49F1F8250A47D8005A3985 /* TryAgainButton.swift in Sources */,
 				2A49F205250ACBBE005A3985 /* Date+Formatter.swift in Sources */,
+				2A49F21A250B76E4005A3985 /* AppDelegate+CoreData.swift in Sources */,
 				2A49F200250AABFA005A3985 /* RatesViewModel.swift in Sources */,
 				2A49F20A250AD53E005A3985 /* SearchBarRepresentable.swift in Sources */,
 				2A49F1DC2509FA12005A3985 /* NetworkRequestProtocol.swift in Sources */,
@@ -909,6 +925,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2A49F216250B6DE0005A3985 /* ExchangeRates.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2A49F217250B6DE0005A3985 /* ExchangeRates.xcdatamodel */,
+			);
+			currentVersion = 2A49F217250B6DE0005A3985 /* ExchangeRates.xcdatamodel */;
+			path = ExchangeRates.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2A964F082508F3DC00EB7D6C /* Project object */;
 }

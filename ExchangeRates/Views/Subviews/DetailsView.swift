@@ -47,8 +47,11 @@ struct DetailsView: View {
       Image(systemName: isFavorited ? "star.fill" : "star")
         .resizable()
         .frame(width: 28, height: 28)
-        .foregroundColor(.yellow)
-    })
+        .foregroundColor(.yellow) }
+    )
+      .alert(isPresented: $viewModel.showCoreDataError) {
+        self.viewModel.showCoreDataErrorAlert()
+    }
   }
 }
 

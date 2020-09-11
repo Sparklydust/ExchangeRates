@@ -37,7 +37,11 @@ extension Localized {
 
   // MARK: Error Title
   static var networkErrorTitle: LSK { return "networkErrorTitle" }
+  static var internalErrorTitle: LSK { return "internalErrorTitle" }
+  static var internalCrashTitle: LSK { return "internalCrashTitle" }
 
   // MARK: Error Message
   static var networkErrorMessage: LSK { return "networkErrorMessage" }
+  static var internalErrorMessage: LSK { return "internalErrorMessage" }
+  static var internalCrashMessage: LSK { return "internalCrashMessage" }
 }

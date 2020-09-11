@@ -14,6 +14,8 @@ import SwiftUI
 ///
 struct ContentView: View {
 
+  @EnvironmentObject var viewModel: RatesViewModel
+
   @State var selection: TabItem = .market
 
   var body: some View {
@@ -32,6 +34,9 @@ struct ContentView: View {
           Image.favorites
       }
       .tag(TabItem.favorites)
+    }
+    .alert(isPresented: $viewModel.showCoreDataCrash) {
+      self.viewModel.showCoreDataCrashAlert()
     }
   }
 }

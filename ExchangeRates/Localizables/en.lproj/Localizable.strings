@@ -20,6 +20,10 @@
 
 // MARK: Error Title
 "networkErrorTitle" = "Network Error";
+"internalErrorTitle" = "Internal Error";
+"internalCrashTitle" = "Internal Crash";
 
 // MARK: Error Message
 "networkErrorMessage" = "There was an issue loading the live rates.\nThanks to try again later.";
+"internalErrorMessage" = "There was an issue saving this rate as your favorite.\nThanks to try again later.";
+"internalCrashMessage" = "There was an issue while settings your data.\nContact support with code 333.";

@@ -20,6 +20,8 @@ final class RatesViewModel: ObservableObject {
   @Published var showNetworkAlert = false
   @Published var showTryAgainButton = false
   @Published var isLoading = false
+  @Published var showCoreDataError = false
+  @Published var showCoreDataCrash = false
 
   // Timer
   @Published var date = Date()
@@ -102,6 +104,7 @@ extension RatesViewModel {
 
   /// Setup the currency of the user coming from
   /// the api.
+  ///
   func setCurrency() {
     currency = rates.source
   }
@@ -160,6 +163,40 @@ extension RatesViewModel {
           secondaryButton: .default(Text(Localized.tryAgain)) {
             self.tryAgainUpstreamTimer()
       })
+  }
+
+  /// Show alert to user when there is an issue saving
+  /// a rate in Core Data Rate as favorite.
+  ///
+  func showCoreDataErrorAlert() -> Alert {
+    Alert(title: Text(Localized.internalErrorTitle),
+          message: Text(Localized.internalErrorMessage),
+          dismissButton: .cancel {
+            self.showCoreDataError = false
+      })
+  }
+
+  /// Show alert to user when Core Data crash while
+  /// setting up the container at app launch.
+  ///
+  func showCoreDataCrashAlert() -> Alert {
+    Alert(title: Text(Localized.internalCrashTitle),
+          message: Text(Localized.internalCrashMessage),
+          dismissButton: .cancel {
+            self.showCoreDataCrash = false
+      })
+  }
+
+  /// Trigger Core Data Error.
+  ///
+  func triggerCoreDataError() {
+    showCoreDataError = true
+  }
+
+  /// Trigger Core Data Crash.
+  ///
+  func triggerCoreDataCrash() {
+    showCoreDataCrash = true
   }
 }
 
