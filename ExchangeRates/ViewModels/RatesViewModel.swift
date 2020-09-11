@@ -16,12 +16,15 @@ final class RatesViewModel: ObservableObject {
 
   private var subscriptions = Set<AnyCancellable>()
 
+  var coreDataService = CoreDataService()
+
   // UI Levers
   @Published var showNetworkAlert = false
   @Published var showTryAgainButton = false
   @Published var isLoading = false
   @Published var showCoreDataError = false
   @Published var showCoreDataCrash = false
+  @Published var isFavorited = false
 
   // Timer
   @Published var date = Date()
@@ -148,7 +151,44 @@ extension RatesViewModel {
   }
 }
 
-// MARK: Alert
+// MARK: - CoreData
+extension RatesViewModel {
+  /// User favorites a rate in Details view and save it in
+  /// Core Data.
+  ///
+  func favoriteStarIsTapped(for symbol: String) {
+    if isFavorited {
+      let fetchedRates = coreDataService.fetch()
+      for i in fetchedRates {
+        if i.symbol == symbol {
+          _ = coreDataService.delete(symbol: i)
+          isFavorited = false
+        }
+      }
+    }
+    else {
+      _ = coreDataService.save(symbol: symbol)
+      isFavorited = true
+    }
+  }
+
+  /// To fill the favorite star if the user already
+  /// save the rate in Core Data.
+  ///
+  func checkForSaved(_ symbol: String) {
+    let fetchedRates = coreDataService.fetch()
+    for i in fetchedRates {
+      if i.symbol == symbol {
+        isFavorited = true
+      }
+      else {
+        isFavorited = false
+      }
+    }
+  }
+}
+
+// MARK: - Alert
 extension RatesViewModel {
   /// Show alert to user when network error is triggered.
   ///
@@ -200,7 +240,7 @@ extension RatesViewModel {
   }
 }
 
-// MARK: NumberFormatter
+// MARK: - NumberFormatter
 extension RatesViewModel {
   /// Format the price and currency depending
   /// on user localization.

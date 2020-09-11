@@ -33,7 +33,6 @@
 		2A49F1F8250A47D8005A3985 /* TryAgainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1F7250A47D8005A3985 /* TryAgainButton.swift */; };
 		2A49F1FB250A4D65005A3985 /* RatesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1FA250A4D65005A3985 /* RatesCell.swift */; };
 		2A49F200250AABFA005A3985 /* RatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1FF250AABFA005A3985 /* RatesViewModel.swift */; };
-		2A49F203250AC152005A3985 /* RatesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F202250AC152005A3985 /* RatesViewModelTests.swift */; };
 		2A49F205250ACBBE005A3985 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F204250ACBBE005A3985 /* Date+Formatter.swift */; };
 		2A49F208250AD4F7005A3985 /* SearchBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F207250AD4F7005A3985 /* SearchBarItem.swift */; };
 		2A49F20A250AD53E005A3985 /* SearchBarRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F209250AD53E005A3985 /* SearchBarRepresentable.swift */; };
@@ -47,6 +46,8 @@
 		2A49F247250B9E34005A3985 /* RateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F246250B9E34005A3985 /* RateData.swift */; };
 		2A49F24C250BA0BC005A3985 /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F24B250BA0BC005A3985 /* MockCoreDataStack.swift */; };
 		2A49F24E250BA0F5005A3985 /* CoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F24D250BA0F5005A3985 /* CoreDataServiceTests.swift */; };
+		2A49F250250BBB6E005A3985 /* EmptyFavoritesMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F24F250BBB6E005A3985 /* EmptyFavoritesMessage.swift */; };
+		2A49F252250BC132005A3985 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F251250BC132005A3985 /* FavoritesViewModel.swift */; };
 		2A964F142508F3DC00EB7D6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F132508F3DC00EB7D6C /* AppDelegate.swift */; };
 		2A964F162508F3DC00EB7D6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F152508F3DC00EB7D6C /* SceneDelegate.swift */; };
 		2A964F182508F3DC00EB7D6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F172508F3DC00EB7D6C /* ContentView.swift */; };
@@ -93,7 +94,6 @@
 		2A49F1F7250A47D8005A3985 /* TryAgainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryAgainButton.swift; sourceTree = "<group>"; };
 		2A49F1FA250A4D65005A3985 /* RatesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesCell.swift; sourceTree = "<group>"; };
 		2A49F1FF250AABFA005A3985 /* RatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewModel.swift; sourceTree = "<group>"; };
-		2A49F202250AC152005A3985 /* RatesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewModelTests.swift; sourceTree = "<group>"; };
 		2A49F204250ACBBE005A3985 /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
 		2A49F207250AD4F7005A3985 /* SearchBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarItem.swift; sourceTree = "<group>"; };
 		2A49F209250AD53E005A3985 /* SearchBarRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarRepresentable.swift; sourceTree = "<group>"; };
@@ -107,6 +107,8 @@
 		2A49F246250B9E34005A3985 /* RateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateData.swift; sourceTree = "<group>"; };
 		2A49F24B250BA0BC005A3985 /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		2A49F24D250BA0F5005A3985 /* CoreDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceTests.swift; sourceTree = "<group>"; };
+		2A49F24F250BBB6E005A3985 /* EmptyFavoritesMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFavoritesMessage.swift; sourceTree = "<group>"; };
+		2A49F251250BC132005A3985 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		2A964F102508F3DC00EB7D6C /* ExchangeRates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeRates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A964F132508F3DC00EB7D6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		2A964F152508F3DC00EB7D6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
@@ -249,7 +251,6 @@
 			children = (
 				2A49F1BF250926AC005A3985 /* Tools */,
 				2A49F249250BA084005A3985 /* Service */,
-				2A49F201250AC125005A3985 /* ViewModels */,
 			);
 			path = Cases;
 			sourceTree = "<group>";
@@ -386,6 +387,7 @@
 			children = (
 				2A49F1F4250A47A6005A3985 /* Buttons */,
 				2A49F23E250B7D59005A3985 /* DetailsTitle.swift */,
+				2A49F24F250BBB6E005A3985 /* EmptyFavoritesMessage.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -410,14 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				2A49F1FF250AABFA005A3985 /* RatesViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		2A49F201250AC125005A3985 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				2A49F202250AC152005A3985 /* RatesViewModelTests.swift */,
+				2A49F251250BC132005A3985 /* FavoritesViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -682,8 +677,10 @@
 				2A49F20C250B56BD005A3985 /* View+Add.swift in Sources */,
 				2A49F208250AD4F7005A3985 /* SearchBarItem.swift in Sources */,
 				2A964F142508F3DC00EB7D6C /* AppDelegate.swift in Sources */,
+				2A49F252250BC132005A3985 /* FavoritesViewModel.swift in Sources */,
 				2A49F210250B5763005A3985 /* SearchBarModifier.swift in Sources */,
 				2A964F162508F3DC00EB7D6C /* SceneDelegate.swift in Sources */,
+				2A49F250250BBB6E005A3985 /* EmptyFavoritesMessage.swift in Sources */,
 				2A49F23F250B7D59005A3985 /* DetailsTitle.swift in Sources */,
 				2A49F1BC2509202A005A3985 /* NetworkPlistValue.swift in Sources */,
 				2A49F1FB250A4D65005A3985 /* RatesCell.swift in Sources */,
@@ -703,7 +700,6 @@
 				2A49F1E7250A0563005A3985 /* NetworkRequestTests.swift in Sources */,
 				2A49F24E250BA0F5005A3985 /* CoreDataServiceTests.swift in Sources */,
 				2A49F24C250BA0BC005A3985 /* MockCoreDataStack.swift in Sources */,
-				2A49F203250AC152005A3985 /* RatesViewModelTests.swift in Sources */,
 				2A49F1E4250A04A6005A3985 /* FakeResponseData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

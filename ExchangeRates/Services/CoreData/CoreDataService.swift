@@ -13,15 +13,18 @@ import CoreData
 /// Responsible for saving, fetching and deleting data in
 /// Core Data.
 ///
+/// managedObjectContext and coreDataStack initializer are for
+/// the unit test only and mock CoreDataService.
+///
 final class CoreDataService {
 
   static let modelName = "ExchangeRates"
 
   let managedObjectContext: NSManagedObjectContext
   let coreDataStack: CoreDataStack
-
-  public init(managedObjectContext: NSManagedObjectContext,
-              coreDataStack: CoreDataStack) {
+  
+  public init(managedObjectContext: NSManagedObjectContext = CoreDataStack.shared.viewContext,
+              coreDataStack: CoreDataStack = CoreDataStack.shared) {
     self.managedObjectContext = managedObjectContext
     self.coreDataStack = coreDataStack
   }

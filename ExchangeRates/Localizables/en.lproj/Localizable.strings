@@ -27,3 +27,6 @@
 "networkErrorMessage" = "There was an issue loading the live rates.\nThanks to try again later.";
 "internalErrorMessage" = "There was an issue saving this rate as your favorite.\nThanks to try again later.";
 "internalCrashMessage" = "There was an issue while settings your data.\nContact support with code 333.";
+
+// MARK: Label
+"chooseFavorites" = "You have not favorited rates.\n\nYou can always do so by going in the market view, selecting a rate you like and clicking on the star populated in the detail view.";

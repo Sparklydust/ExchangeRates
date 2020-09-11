@@ -18,8 +18,6 @@ struct DetailsView: View {
   @State var symbol: String
   @State var price: Double
 
-  @State var isFavorited = false
-
   var body: some View {
     VStack {
       DetailsTitle(symbol: symbol,
@@ -29,14 +27,19 @@ struct DetailsView: View {
       Spacer()
     }
     .navigationBarTitle(Localized.details, displayMode: .large)
-    .navigationBarItems(trailing: Button(action: {}) {
-      Image(systemName: isFavorited ? "star.fill" : "star")
+    .navigationBarItems(trailing: Button(action: {
+      self.viewModel.favoriteStarIsTapped(for: self.symbol)
+    }) {
+      Image(systemName: viewModel.isFavorited ? "star.fill" : "star")
         .resizable()
         .frame(width: 28, height: 28)
         .foregroundColor(.yellow) }
     )
       .alert(isPresented: $viewModel.showCoreDataError) {
         self.viewModel.showCoreDataErrorAlert()
+    }
+    .onAppear {
+      self.viewModel.checkForSaved(self.symbol)
     }
   }
 }

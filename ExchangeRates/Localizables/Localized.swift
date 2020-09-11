@@ -44,4 +44,7 @@ extension Localized {
   static var networkErrorMessage: LSK { return "networkErrorMessage" }
   static var internalErrorMessage: LSK { return "internalErrorMessage" }
   static var internalCrashMessage: LSK { return "internalCrashMessage" }
+
+  // MARK: Label
+  static var chooseFavorites: LSK { return "chooseFavorites" }
 }

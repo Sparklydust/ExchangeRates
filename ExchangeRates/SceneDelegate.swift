@@ -15,12 +15,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
   // MARK: EnvironmentObjects
   var ratesViewModel = RatesViewModel()
+  var favoritesViewModel = FavoritesViewModel()
 
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
     let contentView = ContentView()
       .environment(\.managedObjectContext, CoreDataStack.shared.viewContext)
       .environmentObject(ratesViewModel)
+      .environmentObject(favoritesViewModel)
     
     // Use a UIHostingController as window root view controller.
     if let windowScene = scene as? UIWindowScene {

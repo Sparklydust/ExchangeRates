@@ -33,8 +33,7 @@ struct MarketView: View {
               .filter { searchBar.text.isEmpty
                 ? true
                 : $0.key.contains(searchBar.text.uppercased()) }, id: \.key) { data in
-                  NavigationLink(destination: DetailsView(symbol: data.key,
-                                                          price: data.value)) {
+                  NavigationLink(destination: DetailsView(symbol: data.key, price: data.value)) {
                     RatesCell(symbol: data.key,
                               price: data.value)
                   }

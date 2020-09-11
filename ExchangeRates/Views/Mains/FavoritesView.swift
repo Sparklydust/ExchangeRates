@@ -13,8 +13,25 @@ import SwiftUI
 ///
 struct FavoritesView: View {
 
+  @EnvironmentObject var viewModel: FavoritesViewModel
+
+  @FetchRequest(
+    entity: Rate.entity(),
+    sortDescriptors: [NSSortDescriptor(keyPath: \Rate.symbol, ascending: true)])
+  var savedRates: FetchedResults<Rate>
+
   var body: some View {
-    Text("FavoritesView")
+    ZStack {
+      if savedRates.isEmpty {
+        EmptyFavoritesMessage()
+      }
+      else {
+        List(savedRates, id: \.self) { rate in
+          Text(rate.symbol ?? "unknow")
+        }
+      }
+    }
+    .navigationBarTitle(Localized.favorites, displayMode: .large)
   }
 }
 
