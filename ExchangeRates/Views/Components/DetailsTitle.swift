@@ -13,7 +13,7 @@ import SwiftUI
 ///
 struct DetailsTitle: View {
 
-  @EnvironmentObject var viewModel: RatesViewModel
+  @EnvironmentObject var viewModel: MarketViewModel
 
   @State var symbol: String
   @State var price: Double
@@ -26,14 +26,15 @@ struct DetailsTitle: View {
 
       Spacer()
 
-      HStack(alignment: .center, spacing: 16) {
+      HStack(alignment: .center, spacing: 12) {
         Text(viewModel.populateFormatted(price))
           .font(.title)
           .fontWeight(.bold)
-          .minimumScaleFactor(0.01)
+          .minimumScaleFactor(0.001)
+          .lineLimit(1)
 
         viewModel.detailRateArrow
-          .font(Font.title.weight(.semibold))
+          .font(Font.title.weight(.medium))
       }
       .foregroundColor(viewModel.detailRateColor)
     }

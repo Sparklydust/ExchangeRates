@@ -14,16 +14,13 @@ import Combine
 ///
 struct MarketView: View {
 
-  @EnvironmentObject var viewModel: RatesViewModel
+  @EnvironmentObject var viewModel: MarketViewModel
 
   @ObservedObject var searchBar = SearchBarItem()
 
   var body: some View {
     NavigationView {
       ZStack(alignment: .center) {
-        if viewModel.isLoading {
-          Spinner(isAnimating: viewModel.isLoading, style: .large, color: .blue)
-        }
         VStack {
           if viewModel.showTryAgainButton {
             TryAgainButton(action: { self.viewModel.tryAgainUpstreamTimer() })
@@ -40,17 +37,14 @@ struct MarketView: View {
             }
             .listStyle(PlainListStyle())
           }
-          HStack(alignment: .center) {
-            Spacer()
-            Text("\(viewModel.date.formatted())")
-              .font(.footnote)
-              .fontWeight(.medium)
-            Spacer()
-          }
-          .padding(.vertical, 8)
+          FetchRatesDateItem()
         }
         .add(searchBar)
         .navigationBarTitle(Localized.market, displayMode: .large)
+
+        if viewModel.isLoading {
+          Spinner(isAnimating: viewModel.isLoading, style: .large, color: .blue)
+        }
       }
     }
     .onAppear {

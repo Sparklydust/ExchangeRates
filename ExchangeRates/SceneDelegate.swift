@@ -14,14 +14,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   var window: UIWindow?
 
   // MARK: EnvironmentObjects
-  var ratesViewModel = RatesViewModel()
+  var marketViewModel = MarketViewModel()
   var favoritesViewModel = FavoritesViewModel()
 
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
     let contentView = ContentView()
       .environment(\.managedObjectContext, CoreDataStack.shared.viewContext)
-      .environmentObject(ratesViewModel)
+      .environmentObject(marketViewModel)
       .environmentObject(favoritesViewModel)
     
     // Use a UIHostingController as window root view controller.

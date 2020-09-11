@@ -21,17 +21,43 @@ struct FavoritesView: View {
   var savedRates: FetchedResults<Rate>
 
   var body: some View {
-    ZStack {
-      if savedRates.isEmpty {
-        EmptyFavoritesMessage()
-      }
-      else {
-        List(savedRates, id: \.self) { rate in
-          Text(rate.symbol ?? "unknow")
+    NavigationView {
+      ZStack(alignment: .center) {
+        VStack {
+          if savedRates.isEmpty {
+            EmptyFavoritesMessage()
+          }
+          else {
+            if viewModel.showTryAgainButton {
+              TryAgainButton(action: { self.viewModel.tryAgainUpstreamTimer() })
+            }
+            else {
+              List(viewModel.newFavoriteRates.sorted(by: <), id: \.key) { data in
+                RatesCell(symbol: data.key,
+                          price: data.value)
+              }
+            }
+          }
+        }
+        .navigationBarTitle(Localized.favorites, displayMode: .large)
+
+        if viewModel.isLoading {
+          Spinner(isAnimating: viewModel.isLoading, style: .large, color: .blue)
         }
       }
     }
-    .navigationBarTitle(Localized.favorites, displayMode: .large)
+    .onAppear {
+      self.viewModel.downloadFavoritesLiveRates()
+    }
+    .onReceive(viewModel.timer) { _ in
+      self.viewModel.downloadFavoritesLiveRates()
+    }
+    .onDisappear {
+      self.viewModel.disconnectUpstreamTimer()
+    }
+    .alert(isPresented: $viewModel.showNetworkAlert) {
+      self.viewModel.showNetworkErrorAlert()
+    }
   }
 }
 

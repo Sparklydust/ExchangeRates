@@ -1,5 +1,5 @@
 //
-//  RatesViewModel.swift
+//  MarketViewModel.swift
 //  ExchangeRates
 //
 //  Created by Roland Lariotte on 10/09/2020.
@@ -9,10 +9,10 @@
 import SwiftUI
 import Combine
 
-//  MARK: RatesViewModel
+//  MARK: MarketViewModel
 /// Logic handler for the MarketView and DetailsView.
 ///
-final class RatesViewModel: ObservableObject {
+final class MarketViewModel: ObservableObject {
 
   private var subscriptions = Set<AnyCancellable>()
 
@@ -46,7 +46,7 @@ final class RatesViewModel: ObservableObject {
 }
 
 // MARK: - Network call
-extension RatesViewModel {
+extension MarketViewModel {
   /// Download live rates from the currency layer api.
   ///
   /// Fetch new rates on success and reset old saved rates.
@@ -66,7 +66,7 @@ extension RatesViewModel {
       .store(in: &subscriptions)
   }
 
-  /// Performe actions on the rates data coming
+  /// Perform actions on the rates data coming
   /// from the api where needed.
   ///
   func handle(_ data: RatesData) {
@@ -77,7 +77,7 @@ extension RatesViewModel {
     convertTimestampToDate()
   }
 
-  /// Performe actions on the end of the api call
+  /// Perform actions on the end of the api call
   /// when finished or on failure.
   ///
   func handle(_ completion: Subscribers.Completion<NetworkError>) {
@@ -114,7 +114,7 @@ extension RatesViewModel {
 }
 
 // MARK: - Timer
-extension RatesViewModel {
+extension MarketViewModel {
   /// User cancel timer from Alert to stop making network
   /// request in MarketView.
   ///
@@ -152,7 +152,7 @@ extension RatesViewModel {
 }
 
 // MARK: - CoreData
-extension RatesViewModel {
+extension MarketViewModel {
   /// User favorites a rate in Details view and save it in
   /// Core Data.
   ///
@@ -180,6 +180,7 @@ extension RatesViewModel {
     for i in fetchedRates {
       if i.symbol == symbol {
         isFavorited = true
+        break
       }
       else {
         isFavorited = false
@@ -189,7 +190,7 @@ extension RatesViewModel {
 }
 
 // MARK: - Alert
-extension RatesViewModel {
+extension MarketViewModel {
   /// Show alert to user when network error is triggered.
   ///
   /// User has the choice to cancel or try again api call.
@@ -241,7 +242,7 @@ extension RatesViewModel {
 }
 
 // MARK: - NumberFormatter
-extension RatesViewModel {
+extension MarketViewModel {
   /// Format the price and currency depending
   /// on user localization.
   ///

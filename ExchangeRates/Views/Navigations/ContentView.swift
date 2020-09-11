@@ -14,13 +14,13 @@ import SwiftUI
 ///
 struct ContentView: View {
 
-  @EnvironmentObject var viewModel: RatesViewModel
+  @EnvironmentObject var viewModel: MarketViewModel
 
   @State var selection: TabItem = .market
 
   var body: some View {
     TabView(selection: $selection) {
-      
+
       MarketView()
         .tabItem {
           Text(Localized.market)
@@ -34,6 +34,7 @@ struct ContentView: View {
           Image.favorites
       }
       .tag(TabItem.favorites)
+      
     }
     .alert(isPresented: $viewModel.showCoreDataCrash) {
       self.viewModel.showCoreDataCrashAlert()
