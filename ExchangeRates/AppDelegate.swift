@@ -7,24 +7,9 @@
 //
 
 import SwiftUI
-import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-  @EnvironmentObject var viewModel: RatesViewModel
-
-  /// Core Data persistent container to save Rate as favorite.
-  ///
-  lazy var persistentContainer: NSPersistentContainer = {
-    let container = NSPersistentContainer(name: "ExchangeRates")
-    container.loadPersistentStores { _, error in
-      if let error = error {
-        self.viewModel.triggerCoreDataError()
-      }
-    }
-    return container
-  }()
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     return true

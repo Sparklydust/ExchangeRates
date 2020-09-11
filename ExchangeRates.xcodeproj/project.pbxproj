@@ -41,8 +41,12 @@
 		2A49F210250B5763005A3985 /* SearchBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F20F250B5763005A3985 /* SearchBarModifier.swift */; };
 		2A49F213250B5FC8005A3985 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F212250B5FC8005A3985 /* DetailsView.swift */; };
 		2A49F218250B6DE0005A3985 /* ExchangeRates.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F216250B6DE0005A3985 /* ExchangeRates.xcdatamodeld */; };
-		2A49F21A250B76E4005A3985 /* AppDelegate+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F219250B76E4005A3985 /* AppDelegate+CoreData.swift */; };
 		2A49F23F250B7D59005A3985 /* DetailsTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F23E250B7D59005A3985 /* DetailsTitle.swift */; };
+		2A49F243250B99D9005A3985 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F242250B99D9005A3985 /* CoreDataStack.swift */; };
+		2A49F245250B9D78005A3985 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F244250B9D78005A3985 /* CoreDataService.swift */; };
+		2A49F247250B9E34005A3985 /* RateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F246250B9E34005A3985 /* RateData.swift */; };
+		2A49F24C250BA0BC005A3985 /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F24B250BA0BC005A3985 /* MockCoreDataStack.swift */; };
+		2A49F24E250BA0F5005A3985 /* CoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F24D250BA0F5005A3985 /* CoreDataServiceTests.swift */; };
 		2A964F142508F3DC00EB7D6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F132508F3DC00EB7D6C /* AppDelegate.swift */; };
 		2A964F162508F3DC00EB7D6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F152508F3DC00EB7D6C /* SceneDelegate.swift */; };
 		2A964F182508F3DC00EB7D6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F172508F3DC00EB7D6C /* ContentView.swift */; };
@@ -97,8 +101,12 @@
 		2A49F20F250B5763005A3985 /* SearchBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarModifier.swift; sourceTree = "<group>"; };
 		2A49F212250B5FC8005A3985 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		2A49F217250B6DE0005A3985 /* ExchangeRates.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExchangeRates.xcdatamodel; sourceTree = "<group>"; };
-		2A49F219250B76E4005A3985 /* AppDelegate+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+CoreData.swift"; sourceTree = "<group>"; };
 		2A49F23E250B7D59005A3985 /* DetailsTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTitle.swift; sourceTree = "<group>"; };
+		2A49F242250B99D9005A3985 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		2A49F244250B9D78005A3985 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		2A49F246250B9E34005A3985 /* RateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateData.swift; sourceTree = "<group>"; };
+		2A49F24B250BA0BC005A3985 /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
+		2A49F24D250BA0F5005A3985 /* CoreDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceTests.swift; sourceTree = "<group>"; };
 		2A964F102508F3DC00EB7D6C /* ExchangeRates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeRates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A964F132508F3DC00EB7D6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		2A964F152508F3DC00EB7D6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
@@ -184,7 +192,6 @@
 		2A12372525090A0500868DAA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				2A49F219250B76E4005A3985 /* AppDelegate+CoreData.swift */,
 				2A12372625090A2F00868DAA /* Image+Name.swift */,
 				2A49F204250ACBBE005A3985 /* Date+Formatter.swift */,
 				2A49F20B250B56BD005A3985 /* View+Add.swift */,
@@ -241,7 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				2A49F1BF250926AC005A3985 /* Tools */,
-				2A49F1E5250A0519005A3985 /* Network */,
+				2A49F249250BA084005A3985 /* Service */,
 				2A49F201250AC125005A3985 /* ViewModels */,
 			);
 			path = Cases;
@@ -284,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				2A49F1D72509F295005A3985 /* Network */,
+				2A49F248250BA070005A3985 /* CoreData */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -351,6 +359,7 @@
 			isa = PBXGroup;
 			children = (
 				2A49F1E9250A0679005A3985 /* RatesData.swift */,
+				2A49F246250B9E34005A3985 /* RateData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -457,6 +466,33 @@
 			isa = PBXGroup;
 			children = (
 				2A49F216250B6DE0005A3985 /* ExchangeRates.xcdatamodeld */,
+				2A49F242250B99D9005A3985 /* CoreDataStack.swift */,
+				2A49F244250B9D78005A3985 /* CoreDataService.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		2A49F248250BA070005A3985 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2A49F24B250BA0BC005A3985 /* MockCoreDataStack.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		2A49F249250BA084005A3985 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2A49F1E5250A0519005A3985 /* Network */,
+				2A49F24A250BA08E005A3985 /* CoreData */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		2A49F24A250BA08E005A3985 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2A49F24D250BA0F5005A3985 /* CoreDataServiceTests.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -626,18 +662,19 @@
 				2A49F1F2250A474B005A3985 /* Spinner.swift in Sources */,
 				2A49F1EF250A1AC4005A3985 /* RatesDataProtocol.swift in Sources */,
 				2A49F1D125098426005A3985 /* NetworkError.swift in Sources */,
+				2A49F245250B9D78005A3985 /* CoreDataService.swift in Sources */,
 				2A49F218250B6DE0005A3985 /* ExchangeRates.xcdatamodeld in Sources */,
 				2A49F1CB25096F87005A3985 /* NetworkEndpoint.swift in Sources */,
 				2A49F1EA250A0679005A3985 /* RatesData.swift in Sources */,
 				2A12372725090A2F00868DAA /* Image+Name.swift in Sources */,
 				2A49F1B225090F94005A3985 /* Localized.swift in Sources */,
+				2A49F243250B99D9005A3985 /* CoreDataStack.swift in Sources */,
 				2A1237242509095100868DAA /* FavoritesView.swift in Sources */,
 				2A123722250908ED00868DAA /* MarketView.swift in Sources */,
 				2A49F1BA25091FCC005A3985 /* NetworkPlistKey.swift in Sources */,
 				2A49F213250B5FC8005A3985 /* DetailsView.swift in Sources */,
 				2A49F1F8250A47D8005A3985 /* TryAgainButton.swift in Sources */,
 				2A49F205250ACBBE005A3985 /* Date+Formatter.swift in Sources */,
-				2A49F21A250B76E4005A3985 /* AppDelegate+CoreData.swift in Sources */,
 				2A49F200250AABFA005A3985 /* RatesViewModel.swift in Sources */,
 				2A49F20A250AD53E005A3985 /* SearchBarRepresentable.swift in Sources */,
 				2A49F1DC2509FA12005A3985 /* NetworkRequestProtocol.swift in Sources */,
@@ -650,6 +687,7 @@
 				2A49F23F250B7D59005A3985 /* DetailsTitle.swift in Sources */,
 				2A49F1BC2509202A005A3985 /* NetworkPlistValue.swift in Sources */,
 				2A49F1FB250A4D65005A3985 /* RatesCell.swift in Sources */,
+				2A49F247250B9E34005A3985 /* RateData.swift in Sources */,
 				2A49F1C925096EDA005A3985 /* NetworkRequest.swift in Sources */,
 				2A964F182508F3DC00EB7D6C /* ContentView.swift in Sources */,
 			);
@@ -663,6 +701,8 @@
 				2A49F1EC250A0E80005A3985 /* MockURLSessionDataTask.swift in Sources */,
 				2A49F1C1250926D0005A3985 /* NetworkAPIManagerTests.swift in Sources */,
 				2A49F1E7250A0563005A3985 /* NetworkRequestTests.swift in Sources */,
+				2A49F24E250BA0F5005A3985 /* CoreDataServiceTests.swift in Sources */,
+				2A49F24C250BA0BC005A3985 /* MockCoreDataStack.swift in Sources */,
 				2A49F203250AC152005A3985 /* RatesViewModelTests.swift in Sources */,
 				2A49F1E4250A04A6005A3985 /* FakeResponseData.swift in Sources */,
 			);

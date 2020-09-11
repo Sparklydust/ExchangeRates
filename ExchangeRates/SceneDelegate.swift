@@ -18,16 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
-    /// Core Data managed object context.
-    guard let context = (UIApplication.shared.delegate as? AppDelegate)?
-      .persistentContainer
-      .viewContext else {
-        ratesViewModel.showCoreDataError = true
-        return
-    }
-
     let contentView = ContentView()
-      .environment(\.managedObjectContext, context)
+      .environment(\.managedObjectContext, CoreDataStack.shared.viewContext)
       .environmentObject(ratesViewModel)
     
     // Use a UIHostingController as window root view controller.
@@ -40,6 +32,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   }
 
   func sceneDidEnterBackground(_ scene: UIScene) {
-    (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+    CoreDataStack.shared.saveContext()
   }
 }
