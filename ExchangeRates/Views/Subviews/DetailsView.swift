@@ -9,6 +9,8 @@
 import SwiftUI
 
 //  MARK: DetailsView
+/// Populate details of a single rate.
+///
 struct DetailsView: View {
 
   @EnvironmentObject var viewModel: RatesViewModel
@@ -20,24 +22,8 @@ struct DetailsView: View {
 
   var body: some View {
     VStack {
-      HStack {
-        Text(symbol)
-          .font(.title)
-          .fontWeight(.bold)
-
-        Spacer()
-
-        HStack(alignment: .center, spacing: 16) {
-          Text(viewModel.populateFormatted(price))
-            .font(.title)
-            .fontWeight(.bold)
-            .minimumScaleFactor(0.01)
-
-          viewModel.detailRateArrow
-            .font(Font.title.weight(.semibold))
-        }
-        .foregroundColor(viewModel.detailRateColor)
-      }
+      DetailsTitle(symbol: symbol,
+                   price: price)
       .padding(32)
 
       Spacer()
