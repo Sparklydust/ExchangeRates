@@ -161,7 +161,7 @@ extension MarketViewModel {
       let fetchedRates = coreDataService.fetch()
       for i in fetchedRates {
         if i.symbol == symbol {
-          _ = coreDataService.delete(rate: i)
+          coreDataService.delete(rate: i)
           isFavorited = false
         }
       }
@@ -176,6 +176,7 @@ extension MarketViewModel {
   /// save the rate in Core Data.
   ///
   func checkForSaved(_ symbol: String) {
+    isFavorited = false
     let fetchedRates = coreDataService.fetch()
     for i in fetchedRates {
       if i.symbol == symbol {
