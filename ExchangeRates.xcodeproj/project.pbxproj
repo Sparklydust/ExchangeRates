@@ -35,6 +35,10 @@
 		2A49F200250AABFA005A3985 /* RatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1FF250AABFA005A3985 /* RatesViewModel.swift */; };
 		2A49F203250AC152005A3985 /* RatesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F202250AC152005A3985 /* RatesViewModelTests.swift */; };
 		2A49F205250ACBBE005A3985 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F204250ACBBE005A3985 /* Date+Formatter.swift */; };
+		2A49F208250AD4F7005A3985 /* SearchBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F207250AD4F7005A3985 /* SearchBarItem.swift */; };
+		2A49F20A250AD53E005A3985 /* SearchBarRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F209250AD53E005A3985 /* SearchBarRepresentable.swift */; };
+		2A49F20C250B56BD005A3985 /* View+Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F20B250B56BD005A3985 /* View+Add.swift */; };
+		2A49F210250B5763005A3985 /* SearchBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F20F250B5763005A3985 /* SearchBarModifier.swift */; };
 		2A964F142508F3DC00EB7D6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F132508F3DC00EB7D6C /* AppDelegate.swift */; };
 		2A964F162508F3DC00EB7D6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F152508F3DC00EB7D6C /* SceneDelegate.swift */; };
 		2A964F182508F3DC00EB7D6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A964F172508F3DC00EB7D6C /* ContentView.swift */; };
@@ -83,6 +87,10 @@
 		2A49F1FF250AABFA005A3985 /* RatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewModel.swift; sourceTree = "<group>"; };
 		2A49F202250AC152005A3985 /* RatesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewModelTests.swift; sourceTree = "<group>"; };
 		2A49F204250ACBBE005A3985 /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
+		2A49F207250AD4F7005A3985 /* SearchBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarItem.swift; sourceTree = "<group>"; };
+		2A49F209250AD53E005A3985 /* SearchBarRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarRepresentable.swift; sourceTree = "<group>"; };
+		2A49F20B250B56BD005A3985 /* View+Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Add.swift"; sourceTree = "<group>"; };
+		2A49F20F250B5763005A3985 /* SearchBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarModifier.swift; sourceTree = "<group>"; };
 		2A964F102508F3DC00EB7D6C /* ExchangeRates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeRates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A964F132508F3DC00EB7D6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		2A964F152508F3DC00EB7D6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,7 +147,9 @@
 				2A12372B25090BF100868DAA /* Navigations */,
 				2A123720250908CA00868DAA /* Mains */,
 				2A49F1F9250A4D4C005A3985 /* Cells */,
+				2A49F211250B5862005A3985 /* Items */,
 				2A49F1F3250A4798005A3985 /* Components */,
+				2A49F20D250B573F005A3985 /* Modifiers */,
 				2A49F1F0250A4726005A3985 /* UIViewRepresentable */,
 			);
 			path = Views;
@@ -167,6 +177,7 @@
 			children = (
 				2A12372625090A2F00868DAA /* Image+Name.swift */,
 				2A49F204250ACBBE005A3985 /* Date+Formatter.swift */,
+				2A49F20B250B56BD005A3985 /* View+Add.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -345,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				2A49F1F1250A474B005A3985 /* Spinner.swift */,
+				2A49F209250AD53E005A3985 /* SearchBarRepresentable.swift */,
 			);
 			path = UIViewRepresentable;
 			sourceTree = "<group>";
@@ -387,6 +399,38 @@
 				2A49F202250AC152005A3985 /* RatesViewModelTests.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2A49F206250AD4E3005A3985 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				2A49F207250AD4F7005A3985 /* SearchBarItem.swift */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		2A49F20D250B573F005A3985 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				2A49F20E250B574E005A3985 /* SearchBar */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		2A49F20E250B574E005A3985 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				2A49F20F250B5763005A3985 /* SearchBarModifier.swift */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		2A49F211250B5862005A3985 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				2A49F206250AD4E3005A3985 /* SearchBar */,
+			);
+			path = Items;
 			sourceTree = "<group>";
 		};
 		2A964F072508F3DC00EB7D6C = {
@@ -564,9 +608,13 @@
 				2A49F1F8250A47D8005A3985 /* TryAgainButton.swift in Sources */,
 				2A49F205250ACBBE005A3985 /* Date+Formatter.swift in Sources */,
 				2A49F200250AABFA005A3985 /* RatesViewModel.swift in Sources */,
+				2A49F20A250AD53E005A3985 /* SearchBarRepresentable.swift in Sources */,
 				2A49F1DC2509FA12005A3985 /* NetworkRequestProtocol.swift in Sources */,
 				2A12372A25090B0F00868DAA /* TabItem.swift in Sources */,
+				2A49F20C250B56BD005A3985 /* View+Add.swift in Sources */,
+				2A49F208250AD4F7005A3985 /* SearchBarItem.swift in Sources */,
 				2A964F142508F3DC00EB7D6C /* AppDelegate.swift in Sources */,
+				2A49F210250B5763005A3985 /* SearchBarModifier.swift in Sources */,
 				2A964F162508F3DC00EB7D6C /* SceneDelegate.swift in Sources */,
 				2A49F1BC2509202A005A3985 /* NetworkPlistValue.swift in Sources */,
 				2A49F1FB250A4D65005A3985 /* RatesCell.swift in Sources */,

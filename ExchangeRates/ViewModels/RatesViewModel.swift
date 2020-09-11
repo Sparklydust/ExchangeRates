@@ -24,7 +24,7 @@ final class RatesViewModel: ObservableObject {
   // Timer
   @Published var date = Date()
   @Published var timer = Timer
-    .publish(every: 1, on: .main, in: .common)
+    .publish(every: 61, on: .main, in: .common)
     .autoconnect()
 
   // Data

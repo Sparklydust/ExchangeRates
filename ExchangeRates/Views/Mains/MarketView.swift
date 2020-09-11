@@ -16,6 +16,8 @@ struct MarketView: View {
 
   @EnvironmentObject var viewModel: RatesViewModel
 
+  @ObservedObject var searchBar = SearchBarItem()
+
   var body: some View {
     NavigationView {
       ZStack(alignment: .center) {
@@ -27,11 +29,14 @@ struct MarketView: View {
             TryAgainButton(action: { self.viewModel.tryAgainUpstreamTimer() })
           }
           else {
-            List(viewModel.newRates.sorted(by: <), id: \.key) { data in
-              NavigationLink(destination: Text("DetailsView")) {
-                RatesCell(symbol: data.key,
-                          price: data.value)
-              }
+            List(viewModel.newRates.sorted(by: <)
+              .filter { searchBar.text.isEmpty
+                ? true
+                : $0.key.contains(searchBar.text.uppercased()) }, id: \.key) { data in
+                  NavigationLink(destination: Text("DetailsView")) {
+                    RatesCell(symbol: data.key,
+                              price: data.value)
+                  }
             }
             .listStyle(PlainListStyle())
           }
@@ -44,6 +49,7 @@ struct MarketView: View {
           }
           .padding(.vertical, 8)
         }
+        .add(searchBar)
         .navigationBarTitle(Localized.market, displayMode: .large)
       }
     }
