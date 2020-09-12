@@ -16,6 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   // MARK: EnvironmentObjects
   var marketViewModel = MarketViewModel()
   var favoritesViewModel = FavoritesViewModel()
+  var searchBar = SearchBarItem()
 
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
@@ -23,6 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       .environment(\.managedObjectContext, CoreDataStack.shared.viewContext)
       .environmentObject(marketViewModel)
       .environmentObject(favoritesViewModel)
+      .environmentObject(searchBar)
     
     // Use a UIHostingController as window root view controller.
     if let windowScene = scene as? UIWindowScene {

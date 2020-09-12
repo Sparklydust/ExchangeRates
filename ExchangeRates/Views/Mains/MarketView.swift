@@ -15,8 +15,7 @@ import Combine
 struct MarketView: View {
 
   @EnvironmentObject var viewModel: MarketViewModel
-
-  @ObservedObject var searchBar = SearchBarItem()
+  @EnvironmentObject var searchBar: SearchBarItem
 
   var body: some View {
     NavigationView {
