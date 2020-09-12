@@ -15,14 +15,13 @@ struct RatesCell: View {
 
   @EnvironmentObject var viewModel: MarketViewModel
 
-  @State var symbol: String
-  @State var price: Double
+  @State var data: Dictionary<String, Double>.Element
 
   @State var isPriceNeutral = true
 
   var body: some View {
     HStack {
-      Text(symbol)
+      Text(data.key)
         .font(.headline)
         .fontWeight(.medium)
         .padding(.leading, 8)
@@ -30,13 +29,16 @@ struct RatesCell: View {
       Spacer()
 
       HStack(alignment: .center, spacing: 16) {
-        Text(viewModel.populateFormatted(price))
+        Text(viewModel.populateFormatted(data.value))
           .font(.headline)
           .fontWeight(.medium)
+          .minimumScaleFactor(0.1)
+          .lineLimit(1)
+          .layoutPriority(1)
 
-        viewModel.rateArrow
+        self.viewModel.arrowFinder(for: data)
       }
-      .foregroundColor(viewModel.rateColor)
+      .foregroundColor(self.viewModel.colorFinder(for: data))
       .padding(.trailing, 8)
     }
     .padding(.vertical, 16)
@@ -47,11 +49,9 @@ struct RatesCell: View {
 struct RatesCell_Previews: PreviewProvider {
   static var previews: some View {
     Group {
-      RatesCell(symbol: "AUSDUSD",
-                price: 234.34)
+      RatesCell(data: ("AUSDUSD", 234.34))
 
-      RatesCell(symbol: "AUSDUSD",
-                price: 234.34)
+      RatesCell(data: ("AUSDUSD", 234.34))
         .preferredColorScheme(.dark)
     }
   }

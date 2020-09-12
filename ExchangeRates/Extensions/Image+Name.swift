@@ -19,4 +19,10 @@ extension Image {
   static let market = Image("market.up")
 
   static let favorites = Image(systemName: "star")
+
+  static let arrowUp = Image(systemName: "arrow.up")
+
+  static let arrowDown = Image(systemName: "arrow.down")
+
+  static let arrowUpDown = Image(systemName: "arrow.up.and.down")
 }

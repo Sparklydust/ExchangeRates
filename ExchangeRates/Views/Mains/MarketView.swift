@@ -25,13 +25,12 @@ struct MarketView: View {
             TryAgainButton(action: { self.viewModel.tryAgainUpstreamTimer() })
           }
           else {
-            List(viewModel.newRates.sorted(by: <)
+            List(viewModel.newMarketRates.sorted(by: <)
               .filter { searchBar.text.isEmpty
                 ? true
                 : $0.key.contains(searchBar.text.uppercased()) }, id: \.key) { data in
-                  NavigationLink(destination: DetailsView(symbol: data.key, price: data.value)) {
-                    RatesCell(symbol: data.key,
-                              price: data.value)
+                  NavigationLink(destination: DetailsView(data: data)) {
+                    RatesCell(data: data)
                   }
             }
             .listStyle(PlainListStyle())
@@ -42,14 +41,15 @@ struct MarketView: View {
         .navigationBarTitle(Localized.market, displayMode: .large)
 
         if viewModel.isLoading {
-          Spinner(isAnimating: viewModel.isLoading, style: .large, color: .blue)
+          Spinner(isAnimating: viewModel.isLoading,
+                  style: .large, color: .systemBlue)
         }
       }
     }
     .onAppear {
       self.viewModel.downloadLiveRates()
     }
-    .onReceive(viewModel.timer) { _ in
+    .onReceive(viewModel.marketTimer) { _ in
       self.viewModel.downloadLiveRates()
     }
     .onDisappear {

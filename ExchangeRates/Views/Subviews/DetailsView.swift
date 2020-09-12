@@ -15,20 +15,18 @@ struct DetailsView: View {
 
   @EnvironmentObject var viewModel: MarketViewModel
 
-  @State var symbol: String
-  @State var price: Double
+  @State var data: Dictionary<String, Double>.Element
 
   var body: some View {
     VStack {
-      DetailsTitle(symbol: symbol,
-                   price: price)
+      DetailsTitle(data: data)
       .padding(32)
 
       Spacer()
     }
     .navigationBarTitle(Localized.details, displayMode: .large)
     .navigationBarItems(trailing: Button(action: {
-      self.viewModel.favoriteStarIsTapped(for: self.symbol)
+      self.viewModel.favoriteStarIsTapped(for: self.data.key)
     }) {
       Image(systemName: viewModel.isFavorited ? "star.fill" : "star")
         .resizable()
@@ -39,7 +37,7 @@ struct DetailsView: View {
         self.viewModel.showCoreDataErrorAlert()
     }
     .onAppear {
-      self.viewModel.checkForSaved(self.symbol)
+      self.viewModel.checkForSaved(self.data.key)
     }
   }
 }
@@ -48,11 +46,9 @@ struct DetailsView: View {
 struct DetailsView_Previews: PreviewProvider {
   static var previews: some View {
     Group {
-      DetailsView(symbol: "AUSDUSD",
-                  price: 234.34)
+      DetailsView(data: ("AUSDUSD", 234.34))
 
-      DetailsView(symbol: "AUSDUSD",
-                  price: 234.34)
+      DetailsView(data: ("AUSDUSD", 234.34))
         .preferredColorScheme(.dark)
     }
   }

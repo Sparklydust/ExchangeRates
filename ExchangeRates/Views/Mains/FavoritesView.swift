@@ -34,14 +34,14 @@ struct FavoritesView: View {
             else {
               List {
                 ForEach(viewModel.newFavoriteRates.sorted(by: <), id: \.key) { data in
-                  RatesCell(symbol: data.key,
-                            price: data.value)
+                  RatesCell(data: data)
                 }
                 .onDelete { indexSet in
                   self.viewModel.deleteFavorite(from: self.savedRates,
                                                 at: indexSet)
                 }
               }
+              .listStyle(PlainListStyle())
             }
           }
         }
@@ -49,14 +49,15 @@ struct FavoritesView: View {
         .navigationBarItems(trailing: EditButton())
 
         if viewModel.isLoading {
-          Spinner(isAnimating: viewModel.isLoading, style: .large, color: .blue)
+          Spinner(isAnimating: viewModel.isLoading,
+                  style: .large, color: .systemBlue)
         }
       }
     }
     .onAppear {
       self.viewModel.downloadFavoritesLiveRates()
     }
-    .onReceive(viewModel.timer) { _ in
+    .onReceive(viewModel.favoriteTimer) { _ in
       self.viewModel.downloadFavoritesLiveRates()
     }
     .onDisappear {

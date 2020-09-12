@@ -15,28 +15,28 @@ struct DetailsTitle: View {
 
   @EnvironmentObject var viewModel: MarketViewModel
 
-  @State var symbol: String
-  @State var price: Double
+  @State var data: Dictionary<String, Double>.Element
   
   var body: some View {
-    HStack {
-      Text(symbol)
+    VStack(alignment: .center, spacing: 16) {
+      Text(data.key)
         .font(.title)
         .fontWeight(.bold)
 
-      Spacer()
-
-      HStack(alignment: .center, spacing: 12) {
-        Text(viewModel.populateFormatted(price))
+      HStack(alignment: .center, spacing: 8) {
+        Text(viewModel.populateFormatted(data.value))
           .font(.title)
           .fontWeight(.bold)
-          .minimumScaleFactor(0.001)
+          .minimumScaleFactor(0.1)
           .lineLimit(1)
+          .layoutPriority(1)
 
-        viewModel.detailRateArrow
+        self.viewModel.arrowFinder(for: data)
           .font(Font.title.weight(.medium))
       }
-      .foregroundColor(viewModel.detailRateColor)
+      .foregroundColor(self.viewModel.colorFinder(for: data))
+
+      Spacer()
     }
   }
 }
@@ -45,11 +45,9 @@ struct DetailsTitle: View {
 struct DetailsTitle_Previews: PreviewProvider {
   static var previews: some View {
     Group {
-      DetailsTitle(symbol: "AUSDUSD",
-                   price: 234.34)
+      DetailsTitle(data: ("AUSDUSD", 234.34))
 
-      DetailsTitle(symbol: "AUSDUSD",
-                   price: 234.34)
+      DetailsTitle(data: ("AUSDUSD", 234.34))
         .preferredColorScheme(.dark)
     }
   }

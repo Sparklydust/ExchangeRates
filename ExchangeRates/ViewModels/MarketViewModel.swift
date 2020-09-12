@@ -28,21 +28,15 @@ final class MarketViewModel: ObservableObject {
 
   // Timer
   @Published var date = Date()
-  @Published var timer = Timer
+  @Published var marketTimer = Timer
     .publish(every: 61, on: .main, in: .common)
     .autoconnect()
 
   // Data
   @Published var rates = RatesData()
-  @Published var oldRates = [String: Double]()
-  @Published var newRates = [String: Double]()
+  @Published var oldMarketRates = [String: Double]()
+  @Published var newMarketRates = [String: Double]()
   @Published var currency = String()
-
-  // UX
-  @Published var rateArrow = Image(systemName: "arrow.up")
-  @Published var rateColor: Color = .blue
-  @Published var detailRateArrow = Image(systemName: "arrow.up")
-  @Published var detailRateColor: Color = .blue
 }
 
 // MARK: - Network call
@@ -71,7 +65,7 @@ extension MarketViewModel {
   ///
   func handle(_ data: RatesData) {
     resetOldRatesNewRates()
-    newRates = data.quotes
+    newMarketRates = data.quotes
     rates = data
     setCurrency()
     convertTimestampToDate()
@@ -101,8 +95,8 @@ extension MarketViewModel {
   /// new rates to receive values from api call.
   ///
   func resetOldRatesNewRates() {
-    oldRates = newRates
-    newRates = [String: Double]()
+    oldMarketRates = newMarketRates
+    newMarketRates = [String: Double]()
   }
 
   /// Setup the currency of the user coming from
@@ -110,6 +104,40 @@ extension MarketViewModel {
   ///
   func setCurrency() {
     currency = rates.source
+  }
+
+  /// Set the color of the rate by comparing with the old
+  /// one fetched from api. Set to blue for first api call.
+  ///
+  func colorFinder(for data: Dictionary<String, Double>.Element) -> Color {
+    for o in oldMarketRates {
+      if o.key == data.key
+        && o.value > data.value {
+        return .red
+      }
+      else if o.key == data.key
+        && o.value < data.value {
+        return .green
+      }
+    }
+    return .blue
+  }
+
+  /// Set the arrow of the rate by comparing with the old one
+  /// fetched from api. Set to arrowUpDown for first api call.
+  ///
+  func arrowFinder(for data: Dictionary<String, Double>.Element) -> Image {
+    for o in oldMarketRates {
+      if o.key == data.key
+        && o.value > data.value {
+        return .arrowDown
+      }
+      else if o.key == data.key
+        && o.value < data.value {
+        return .arrowUp
+      }
+    }
+    return .arrowUpDown
   }
 }
 
@@ -128,7 +156,7 @@ extension MarketViewModel {
   /// MarketView.
   ///
   func disconnectUpstreamTimer() {
-    timer.upstream
+    marketTimer.upstream
       .connect()
       .cancel()
   }
@@ -138,7 +166,7 @@ extension MarketViewModel {
   ///
   func tryAgainUpstreamTimer() {
     showTryAgainButton = false
-    timer.upstream
+    marketTimer.upstream
       .connect()
       .store(in: &subscriptions)
     downloadLiveRates()
@@ -252,6 +280,7 @@ extension MarketViewModel {
     let formatter = NumberFormatter()
     formatter.usesGroupingSeparator = true
     formatter.locale = .current
+    formatter.maximumFractionDigits = 6
     formatter.numberStyle = .currency
     formatter.currencyCode = currency
 

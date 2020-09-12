@@ -24,7 +24,7 @@ final class FavoritesViewModel: ObservableObject {
   @Published var isLoading = false
 
   // Timer
-  @Published var timer = Timer
+  @Published var favoriteTimer = Timer
     .publish(every: 61, on: .main, in: .common)
     .autoconnect()
 
@@ -131,7 +131,7 @@ extension FavoritesViewModel {
   /// FavoriteView.
   ///
   func disconnectUpstreamTimer() {
-    timer.upstream
+    favoriteTimer.upstream
       .connect()
       .cancel()
   }
@@ -141,7 +141,7 @@ extension FavoritesViewModel {
   ///
   func tryAgainUpstreamTimer() {
     showTryAgainButton = false
-    timer.upstream
+    favoriteTimer.upstream
       .connect()
       .store(in: &subscriptions)
     downloadFavoritesLiveRates()
