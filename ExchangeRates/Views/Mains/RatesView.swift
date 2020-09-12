@@ -1,5 +1,5 @@
 //
-//  MarketView.swift
+//  RatesView.swift
 //  ExchangeRates
 //
 //  Created by Roland Lariotte on 09/09/2020.
@@ -9,12 +9,12 @@
 import SwiftUI
 import Combine
 
-//  MARK: MarketView
+//  MARK: RatesView
 /// Populates the exchanges rates in real time.
 ///
-struct MarketView: View {
+struct RatesView: View {
 
-  @EnvironmentObject var viewModel: MarketViewModel
+  @EnvironmentObject var viewModel: RatesViewModel
   @EnvironmentObject var searchBar: SearchBarItem
 
   var body: some View {
@@ -25,7 +25,7 @@ struct MarketView: View {
             TryAgainButton(action: { self.viewModel.tryAgainUpstreamTimer() })
           }
           else {
-            List(viewModel.newMarketRates.sorted(by: <)
+            List(viewModel.newRates.sorted(by: <)
               .filter { searchBar.text.isEmpty
                 ? true
                 : $0.key.contains(searchBar.text.uppercased()) }, id: \.key) { data in
@@ -38,7 +38,7 @@ struct MarketView: View {
           FetchRatesDateItem()
         }
         .add(searchBar)
-        .navigationBarTitle(Localized.market, displayMode: .large)
+        .navigationBarTitle(Localized.rates, displayMode: .large)
 
         if viewModel.isLoading {
           Spinner(isAnimating: viewModel.isLoading,
@@ -49,7 +49,7 @@ struct MarketView: View {
     .onAppear {
       self.viewModel.downloadLiveRates()
     }
-    .onReceive(viewModel.marketTimer) { _ in
+    .onReceive(viewModel.ratesTimer) { _ in
       self.viewModel.downloadLiveRates()
     }
     .onDisappear {
@@ -62,12 +62,12 @@ struct MarketView: View {
 }
 
 // MARK: - Previews
-struct MarketView_Previews: PreviewProvider {
+struct Rates_Previews: PreviewProvider {
   static var previews: some View {
     Group {
-      MarketView()
+      RatesView()
 
-      MarketView()
+      RatesView()
         .preferredColorScheme(.dark)
     }
   }

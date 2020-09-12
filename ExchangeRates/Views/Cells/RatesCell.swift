@@ -13,7 +13,7 @@ import SwiftUI
 /// a button to save rates to favorites
 struct RatesCell: View {
 
-  @EnvironmentObject var viewModel: MarketViewModel
+  @EnvironmentObject var viewModel: RatesViewModel
 
   @State var data: Dictionary<String, Double>.Element
 

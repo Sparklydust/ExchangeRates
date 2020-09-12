@@ -16,7 +16,7 @@ import SwiftUI
 ///
 extension Image {
 
-  static let market = Image("market.up")
+  static let rates = Image("market.up")
 
   static let favorites = Image(systemName: "star")
 

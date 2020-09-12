@@ -41,7 +41,7 @@ struct FavoritesView: View {
                                                 at: indexSet)
                 }
               }
-              .listStyle(PlainListStyle())
+              .listStyle(GroupedListStyle())
             }
           }
         }

@@ -17,6 +17,6 @@ import Foundation
 ///
 enum TabItem {
 
-  case market
+  case rates
   case favorites
 }

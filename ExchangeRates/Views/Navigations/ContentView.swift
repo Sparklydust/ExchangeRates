@@ -14,19 +14,19 @@ import SwiftUI
 ///
 struct ContentView: View {
 
-  @EnvironmentObject var viewModel: MarketViewModel
+  @EnvironmentObject var viewModel: RatesViewModel
 
-  @State var selection: TabItem = .market
+  @State var selection: TabItem = .rates
 
   var body: some View {
     TabView(selection: $selection) {
 
-      MarketView()
+      RatesView()
         .tabItem {
-          Text(Localized.market)
-          Image.market
+          Text(Localized.rates)
+          Image.rates
       }
-      .tag(TabItem.market)
+      .tag(TabItem.rates)
 
       FavoritesView()
         .tabItem {

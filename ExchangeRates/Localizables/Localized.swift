@@ -16,7 +16,7 @@ import SwiftUI
 /// perform the translations.
 ///
 /// ```
-/// Localized.market // example of use
+/// Localized.rates // example of use
 /// ```
 enum Localized {
   typealias LSK = LocalizedStringKey
@@ -26,7 +26,7 @@ enum Localized {
 extension Localized {
 
   // MARK: Tab Bar Item
-  static var market: LSK { return "market" }
+  static var rates: LSK { return "rates" }
   static var favorites: LSK { return "favorites" }
 
   // MARK: Navigation title

@@ -14,7 +14,7 @@ import SwiftUI
 ///
 struct FetchRatesDateItem: View {
 
-  @EnvironmentObject var viewModel: MarketViewModel
+  @EnvironmentObject var viewModel: RatesViewModel
 
   var body: some View {
     HStack(alignment: .center) {

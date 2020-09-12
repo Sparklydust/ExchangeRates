@@ -9,7 +9,7 @@
 // MARK: - English Translation keys
 
 // MARK: Tab Bar Item
-"market" = "Market";
+"rates" = "Rates";
 "favorites" = "Favorites";
 
 // MARK: Navigation title
@@ -30,4 +30,4 @@
 "favoritesDataErrorMessage" = "There was an issue loading your favorites live rates.\nThanks to try again later.";
 
 // MARK: Label
-"chooseFavorites" = "You have not favorited rates.\n\nYou can always do so by going in the market view, selecting a rate you like and clicking on the star populated in the detail view.";
+"chooseFavorites" = "You have not favorited rates.\n\nYou can always do so by going in the rates view, selecting a rate you like and clicking on the star populated in the detail view.";

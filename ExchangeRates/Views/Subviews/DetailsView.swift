@@ -13,7 +13,7 @@ import SwiftUI
 ///
 struct DetailsView: View {
 
-  @EnvironmentObject var viewModel: MarketViewModel
+  @EnvironmentObject var viewModel: RatesViewModel
 
   @State var data: Dictionary<String, Double>.Element
 

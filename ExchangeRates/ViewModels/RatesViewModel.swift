@@ -1,5 +1,5 @@
 //
-//  MarketViewModel.swift
+//  RatesViewModel.swift
 //  ExchangeRates
 //
 //  Created by Roland Lariotte on 10/09/2020.
@@ -9,10 +9,10 @@
 import SwiftUI
 import Combine
 
-//  MARK: MarketViewModel
-/// Logic handler for the MarketView and DetailsView.
+//  MARK: RatesViewModel
+/// Logic handler for the RatesView and DetailsView.
 ///
-final class MarketViewModel: ObservableObject {
+final class RatesViewModel: ObservableObject {
 
   private var subscriptions = Set<AnyCancellable>()
 
@@ -28,19 +28,19 @@ final class MarketViewModel: ObservableObject {
 
   // Timer
   @Published var date = Date()
-  @Published var marketTimer = Timer
+  @Published var ratesTimer = Timer
     .publish(every: 61, on: .main, in: .common)
     .autoconnect()
 
   // Data
   @Published var rates = RatesData()
-  @Published var oldMarketRates = [String: Double]()
-  @Published var newMarketRates = [String: Double]()
+  @Published var oldRates = [String: Double]()
+  @Published var newRates = [String: Double]()
   @Published var currency = String()
 }
 
 // MARK: - Network call
-extension MarketViewModel {
+extension RatesViewModel {
   /// Download live rates from the currency layer api.
   ///
   /// Fetch new rates on success and reset old saved rates.
@@ -56,18 +56,16 @@ extension MarketViewModel {
         receiveValue: { [weak self] data in
           guard let self = self else { return }
           withAnimation(.easeInOut) {
-            self.handle(data) } })
+            self.handleRates(data) } })
       .store(in: &subscriptions)
   }
 
   /// Perform actions on the rates data coming
   /// from the api where needed.
   ///
-  func handle(_ data: RatesData) {
-    resetOldRatesNewRates()
-    newMarketRates = data.quotes
-    rates = data
-    setCurrency()
+  func handleRates(_ data: RatesData) {
+    setupOldRatesNewRates(with: data)
+    setupCurrency()
     convertTimestampToDate()
   }
 
@@ -91,18 +89,32 @@ extension MarketViewModel {
     isLoading = action
   }
 
+  /// Action that setup old rates and new rates data
+  /// in Views.
+  ///
+  /// - Warning: Order of the action must be kept
+  /// this way in the method.
+  ///
+  /// - Parameter data: rates data fetch from api call.
+  ///
+  func setupOldRatesNewRates(with data: RatesData) {
+    resetOldRatesNewRates()
+    newRates = data.quotes
+    rates = data
+  }
+
   /// Reset old Rates with new rates and empty
   /// new rates to receive values from api call.
   ///
   func resetOldRatesNewRates() {
-    oldMarketRates = newMarketRates
-    newMarketRates = [String: Double]()
+    oldRates = newRates
+    newRates = [String: Double]()
   }
 
   /// Setup the currency of the user coming from
   /// the api.
   ///
-  func setCurrency() {
+  func setupCurrency() {
     currency = rates.source
   }
 
@@ -110,7 +122,7 @@ extension MarketViewModel {
   /// one fetched from api. Set to blue for first api call.
   ///
   func colorFinder(for data: Dictionary<String, Double>.Element) -> Color {
-    for o in oldMarketRates {
+    for o in oldRates {
       if o.key == data.key
         && o.value > data.value {
         return .red
@@ -127,7 +139,7 @@ extension MarketViewModel {
   /// fetched from api. Set to arrowUpDown for first api call.
   ///
   func arrowFinder(for data: Dictionary<String, Double>.Element) -> Image {
-    for o in oldMarketRates {
+    for o in oldRates {
       if o.key == data.key
         && o.value > data.value {
         return .arrowDown
@@ -142,9 +154,9 @@ extension MarketViewModel {
 }
 
 // MARK: - Timer
-extension MarketViewModel {
+extension RatesViewModel {
   /// User cancel timer from Alert to stop making network
-  /// request in MarketView.
+  /// request in RatesView.
   ///
   func cancelUpstreamTimer() {
     self.isLoading = false
@@ -153,10 +165,10 @@ extension MarketViewModel {
   }
 
   /// Disconnect Timer to stop making network request in
-  /// MarketView.
+  /// RatesView.
   ///
   func disconnectUpstreamTimer() {
-    marketTimer.upstream
+    ratesTimer.upstream
       .connect()
       .cancel()
   }
@@ -166,7 +178,7 @@ extension MarketViewModel {
   ///
   func tryAgainUpstreamTimer() {
     showTryAgainButton = false
-    marketTimer.upstream
+    ratesTimer.upstream
       .connect()
       .store(in: &subscriptions)
     downloadLiveRates()
@@ -180,7 +192,7 @@ extension MarketViewModel {
 }
 
 // MARK: - CoreData
-extension MarketViewModel {
+extension RatesViewModel {
   /// User favorites a rate in Details view and save it in
   /// Core Data.
   ///
@@ -219,7 +231,7 @@ extension MarketViewModel {
 }
 
 // MARK: - Alert
-extension MarketViewModel {
+extension RatesViewModel {
   /// Show alert to user when network error is triggered.
   ///
   /// User has the choice to cancel or try again api call.
@@ -271,7 +283,7 @@ extension MarketViewModel {
 }
 
 // MARK: - NumberFormatter
-extension MarketViewModel {
+extension RatesViewModel {
   /// Format the price and currency depending
   /// on user localization.
   ///

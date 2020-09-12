@@ -22,7 +22,7 @@ open class CoreDataStack {
     self.modelName = modelName
   }
 
-  @EnvironmentObject var marketViewModel: MarketViewModel
+  @EnvironmentObject var ratesViewModel: RatesViewModel
 
   /// Core Data persistent container..
   ///
@@ -30,7 +30,7 @@ open class CoreDataStack {
     let container = NSPersistentContainer(name: self.modelName)
     container.loadPersistentStores { _, error in
       if let error = error {
-        self.marketViewModel.triggerCoreDataError()
+        self.ratesViewModel.triggerCoreDataError()
       }
     }
     return container
@@ -50,7 +50,7 @@ open class CoreDataStack {
       try viewContext.save()
     }
     catch {
-      marketViewModel.triggerCoreDataError()
+      ratesViewModel.triggerCoreDataError()
     }
   }
 }

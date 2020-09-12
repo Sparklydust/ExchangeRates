@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A123722250908ED00868DAA /* MarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A123721250908ED00868DAA /* MarketView.swift */; };
+		2A123722250908ED00868DAA /* RatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A123721250908ED00868DAA /* RatesView.swift */; };
 		2A1237242509095100868DAA /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1237232509095100868DAA /* FavoritesView.swift */; };
 		2A12372725090A2F00868DAA /* Image+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A12372625090A2F00868DAA /* Image+Name.swift */; };
 		2A12372A25090B0F00868DAA /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A12372925090B0F00868DAA /* TabItem.swift */; };
@@ -32,7 +32,7 @@
 		2A49F1F2250A474B005A3985 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1F1250A474B005A3985 /* Spinner.swift */; };
 		2A49F1F8250A47D8005A3985 /* TryAgainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1F7250A47D8005A3985 /* TryAgainButton.swift */; };
 		2A49F1FB250A4D65005A3985 /* RatesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1FA250A4D65005A3985 /* RatesCell.swift */; };
-		2A49F200250AABFA005A3985 /* MarketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1FF250AABFA005A3985 /* MarketViewModel.swift */; };
+		2A49F200250AABFA005A3985 /* RatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1FF250AABFA005A3985 /* RatesViewModel.swift */; };
 		2A49F205250ACBBE005A3985 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F204250ACBBE005A3985 /* Date+Formatter.swift */; };
 		2A49F208250AD4F7005A3985 /* SearchBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F207250AD4F7005A3985 /* SearchBarItem.swift */; };
 		2A49F20A250AD53E005A3985 /* SearchBarRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F209250AD53E005A3985 /* SearchBarRepresentable.swift */; };
@@ -68,7 +68,7 @@
 
 /* Begin PBXFileReference section */
 		2A12371F2508FFFF00868DAA /* Development.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Development.xctestplan; sourceTree = "<group>"; };
-		2A123721250908ED00868DAA /* MarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketView.swift; sourceTree = "<group>"; };
+		2A123721250908ED00868DAA /* RatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesView.swift; sourceTree = "<group>"; };
 		2A1237232509095100868DAA /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		2A12372625090A2F00868DAA /* Image+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Name.swift"; sourceTree = "<group>"; };
 		2A12372925090B0F00868DAA /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		2A49F1F1250A474B005A3985 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		2A49F1F7250A47D8005A3985 /* TryAgainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryAgainButton.swift; sourceTree = "<group>"; };
 		2A49F1FA250A4D65005A3985 /* RatesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesCell.swift; sourceTree = "<group>"; };
-		2A49F1FF250AABFA005A3985 /* MarketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewModel.swift; sourceTree = "<group>"; };
+		2A49F1FF250AABFA005A3985 /* RatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewModel.swift; sourceTree = "<group>"; };
 		2A49F204250ACBBE005A3985 /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
 		2A49F207250AD4F7005A3985 /* SearchBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarItem.swift; sourceTree = "<group>"; };
 		2A49F209250AD53E005A3985 /* SearchBarRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarRepresentable.swift; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 		2A123720250908CA00868DAA /* Mains */ = {
 			isa = PBXGroup;
 			children = (
-				2A123721250908ED00868DAA /* MarketView.swift */,
+				2A123721250908ED00868DAA /* RatesView.swift */,
 				2A1237232509095100868DAA /* FavoritesView.swift */,
 			);
 			path = Mains;
@@ -410,7 +410,7 @@
 		2A49F1FE250AAB4F005A3985 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				2A49F1FF250AABFA005A3985 /* MarketViewModel.swift */,
+				2A49F1FF250AABFA005A3985 /* RatesViewModel.swift */,
 				2A49F253250BCB2C005A3985 /* FavoritesViewModel.swift */,
 			);
 			path = ViewModels;
@@ -673,13 +673,13 @@
 				2A49F1B225090F94005A3985 /* Localized.swift in Sources */,
 				2A49F243250B99D9005A3985 /* CoreDataStack.swift in Sources */,
 				2A1237242509095100868DAA /* FavoritesView.swift in Sources */,
-				2A123722250908ED00868DAA /* MarketView.swift in Sources */,
+				2A123722250908ED00868DAA /* RatesView.swift in Sources */,
 				2A49F1BA25091FCC005A3985 /* NetworkPlistKey.swift in Sources */,
 				2A49F213250B5FC8005A3985 /* DetailsView.swift in Sources */,
 				2A49F257250C0255005A3985 /* FetchRatesDateItem.swift in Sources */,
 				2A49F1F8250A47D8005A3985 /* TryAgainButton.swift in Sources */,
 				2A49F205250ACBBE005A3985 /* Date+Formatter.swift in Sources */,
-				2A49F200250AABFA005A3985 /* MarketViewModel.swift in Sources */,
+				2A49F200250AABFA005A3985 /* RatesViewModel.swift in Sources */,
 				2A49F20A250AD53E005A3985 /* SearchBarRepresentable.swift in Sources */,
 				2A49F1DC2509FA12005A3985 /* NetworkRequestProtocol.swift in Sources */,
 				2A12372A25090B0F00868DAA /* TabItem.swift in Sources */,

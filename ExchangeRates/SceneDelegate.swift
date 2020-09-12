@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   var window: UIWindow?
 
   // MARK: EnvironmentObjects
-  var marketViewModel = MarketViewModel()
+  var ratesViewModel = RatesViewModel()
   var favoritesViewModel = FavoritesViewModel()
   var searchBar = SearchBarItem()
 
@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     let contentView = ContentView()
       .environment(\.managedObjectContext, CoreDataStack.shared.viewContext)
-      .environmentObject(marketViewModel)
+      .environmentObject(ratesViewModel)
       .environmentObject(favoritesViewModel)
       .environmentObject(searchBar)
     
