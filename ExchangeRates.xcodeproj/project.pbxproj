@@ -11,6 +11,7 @@
 		2A1237242509095100868DAA /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1237232509095100868DAA /* FavoritesView.swift */; };
 		2A12372725090A2F00868DAA /* Image+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A12372625090A2F00868DAA /* Image+Name.swift */; };
 		2A12372A25090B0F00868DAA /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A12372925090B0F00868DAA /* TabItem.swift */; };
+		2A2E0B16250E4B78002A06EF /* NetworkIronFX.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A2E0B15250E4B78002A06EF /* NetworkIronFX.plist */; };
 		2A36D09B250E030D00504FE5 /* ExchangeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A36D09A250E030D00504FE5 /* ExchangeTimer.swift */; };
 		2A36D0A4250E38C600504FE5 /* MarketingScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A36D0A3250E38C600504FE5 /* MarketingScreenshots.swift */; };
 		2A49F1AE25090F68005A3985 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A49F1B025090F68005A3985 /* Localizable.strings */; };
@@ -81,6 +82,7 @@
 		2A1237232509095100868DAA /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		2A12372625090A2F00868DAA /* Image+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Name.swift"; sourceTree = "<group>"; };
 		2A12372925090B0F00868DAA /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
+		2A2E0B15250E4B78002A06EF /* NetworkIronFX.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NetworkIronFX.plist; sourceTree = "<group>"; };
 		2A36D09A250E030D00504FE5 /* ExchangeTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeTimer.swift; sourceTree = "<group>"; };
 		2A36D09C250E38A000504FE5 /* Marketing.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Marketing.xctestplan; sourceTree = "<group>"; };
 		2A36D0A1250E38C600504FE5 /* ExchangeRatesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExchangeRatesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +169,7 @@
 				2A964F1E2508F3E300EB7D6C /* LaunchScreen.storyboard */,
 				2A964F212508F3E300EB7D6C /* Info.plist */,
 				2A49F1B325091765005A3985 /* Network.plist */,
+				2A2E0B15250E4B78002A06EF /* NetworkIronFX.plist */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";
@@ -743,6 +746,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A49F1B425091765005A3985 /* Network.plist in Resources */,
+				2A2E0B16250E4B78002A06EF /* NetworkIronFX.plist in Resources */,
 				2A964F202508F3E300EB7D6C /* LaunchScreen.storyboard in Resources */,
 				2A49F1AE25090F68005A3985 /* Localizable.strings in Resources */,
 				2A964F1D2508F3E300EB7D6C /* Preview Assets.xcassets in Resources */,
