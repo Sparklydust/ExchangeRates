@@ -1,0 +1,33 @@
+/* 
+  Localizable.strings
+  ExchangeRates
+
+  Created by Roland Lariotte on 09/09/2020.
+  Copyright © 2020 Roland Lariotte. All rights reserved.
+*/
+
+// MARK: - English Translation keys
+
+// MARK: Tab Bar Item
+"rates" = "Taux";
+"favorites" = "Favoris";
+
+// MARK: Navigation title
+"details" = "Détails";
+
+// MARK: Button
+"tryAgain" = "Réessayer";
+
+// MARK: Error Title
+"networkErrorTitle" = "Erreur réseau";
+"internalErrorTitle" = "Erreur interne";
+"internalCrashTitle" = "Crash interne";
+
+// MARK: Error Message
+"networkErrorMessage" = "Un problème est survenu lors du chargement des taux de change en direct.\nMerci de réessayer plus tard.";
+"internalErrorMessage" = "Un problème est survenu lors de l'enregistrement de ce taux de change comme favori.\nMerci de réessayer plus tard.";
+"internalCrashMessage" = "Un problème est survenu lors de la configuration de vos données.\nContactez l'assistance avec le code 333.";
+"favoritesDataErrorMessage" = "Un problème est survenu lors du chargement de vos taux de change favoris.\nMerci de réessayer plus tard.";
+
+// MARK: Label
+"chooseFavorites" = "Vous n'avez pas favorisé de taux de change.\n\nVous pouvez toujours le faire en accédant à la vue des taux, sélectionner un celui que vous aimez et cliquer sur l'étoile présente dans la page de détails.";

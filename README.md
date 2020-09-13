@@ -12,11 +12,11 @@ contact: roland.lariotte@gmail.com
 
 ### Starter
 
-● Start the project using Xcode 11.
+1. Start the project using Xcode 11.
 
-● Add your Apple team membership in the Signing & Capabilities for the ExchangeRates, ExchangeRatesTests and ExchangeRatesUITests targets.
+2. Add your Apple team membership in the Signing & Capabilities for the ExchangeRates, ExchangeRatesTests and ExchangeRatesUITests targets.
 
-● Add your API key of the https://currencylayer.com/ website in the Xcode project following this path: 
+3. Add your API key of the https://currencylayer.com/ website in the Xcode project following this path: 
 
 - ExchangeRates project folder
 - SupportingFiles
@@ -83,6 +83,3 @@ As for the screenshots, a Pre-actions and Post-action was added to the Test sche
 #### 4. Third-party libraries
 
 No cocoapods or swift libraries where used in this project. I personally try to avoid them as much as possible for a better maintenance of the application. They are used as a very last option.
-
-
-![ExchangeRates App](/ExchangeRates/Documentation/Mockups/RatesView.png)
