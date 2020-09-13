@@ -18,14 +18,14 @@ import Combine
 ///
 class ExchangeTimer: ObservableObject {
 
-  /// Trigger timer for the onReceive plublisher at
-  /// constant interval.
+  /// Trigger timer for the onReceive in SwiftUI views
+  /// plublisher at constant interval.
   ///
   var connectedPublisher = Timer
     .TimerPublisher(interval: 62, runLoop: .main, mode: .default)
     .autoconnect()
 
-  /// Start the timer on the main thread.
+  /// Start the timer on the main thread at time interval.
   ///
   func connect() {
     connectedPublisher = Timer
@@ -33,7 +33,7 @@ class ExchangeTimer: ObservableObject {
       .autoconnect()
   }
 
-  /// Stop the timer for publisher at interval.
+  /// Stop the timer for publisher.
   ///
   func disconnect() {
     connectedPublisher

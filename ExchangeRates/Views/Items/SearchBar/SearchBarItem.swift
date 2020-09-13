@@ -9,8 +9,8 @@
 import SwiftUI
 
 //  MARK: SearchBarItem
-/// Search bar made from UIKit off UIViewRepresentable and
-/// set to be used on Views.
+/// Search bar made from UIKit off to UIViewRepresentable and
+/// set to be used on SwiftUI Views.
 ///
 class SearchBarItem: NSObject, ObservableObject {
 

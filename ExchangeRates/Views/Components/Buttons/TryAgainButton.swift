@@ -9,8 +9,9 @@
 import SwiftUI
 
 //  MARK: TryAgainButton
-/// Button populated to user when cancel on Alert is tapped
-/// after network call error from RatesView.
+/// Button populated to user when cancel button
+/// on the Alert is tapped after network call
+/// error from RatesView.
 ///
 struct TryAgainButton: View {
 

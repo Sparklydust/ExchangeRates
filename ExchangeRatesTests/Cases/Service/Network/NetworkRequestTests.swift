@@ -17,7 +17,7 @@ class NetworkRequestTests: XCTestCase {
 
   override func setUpWithError() throws {
     try super.setUpWithError()
-    expectation = XCTestExpectation(description: "wait for queue change")
+    expectation = XCTestExpectation(description: "wait for fake queue change")
     subscriptions = Set<AnyCancellable>()
   }
 

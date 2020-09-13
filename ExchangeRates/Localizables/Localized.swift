@@ -12,7 +12,7 @@ import SwiftUI
 /// Enumeration of localized Strings for translations.
 ///
 /// This enum is the link between all the code String
-/// declarations to the Localizable.strings keys to
+/// declarations and the Localizable.strings keys to
 /// perform the translations.
 ///
 /// ```

@@ -11,6 +11,14 @@
         },
         "region" : "GB"
       }
+    },
+    {
+      "id" : "3DD79BC9-EE92-4E42-8C6D-D3288FD6F5D1",
+      "name" : "French",
+      "options" : {
+        "language" : "fr",
+        "region" : "FR"
+      }
     }
   ],
   "defaultOptions" : {

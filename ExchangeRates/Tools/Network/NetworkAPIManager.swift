@@ -9,7 +9,7 @@
 import Foundation
 
 //  MARK: NetworkAPIManager
-/// Retrieve url inside the Netowrk.plist .gitignored hidden file.
+/// Retrieve url inside the NetowrkIronFX.plist file.
 ///
 /// This class has only one function, to retrieve any url or api key for the all
 /// ExchangeRates application. Its aim is to have all urls and keys in one place.
@@ -23,9 +23,10 @@ final class NetworkAPIManager {
   /// Retrieve the url value in Network.plist file associated to the key
   ///
   /// - Parameters:
-  ///     - plistKey: The key to retrieve the needed url or api key dictionary. See the
-  ///     NetworkPlistKey for all keys enumaration.
-  ///     - plistValue: The value that contains the needed url or api key in Network.plist
+  ///     - plistKey: The key to retrieve the needed url or api key dictionary.
+  ///     See the NetworkPlistKey for all keys enumaration.
+  ///     - plistValue: The value that contains the needed url or api
+  ///     key in Network.IronFX plist
   /// - Returns: ExchangeRates application urls and api keys as a String value.
   ///
   class func retrieve(_ plistKey: NetworkPlistKey, _ plistValue: NetworkPlistValue) -> String {

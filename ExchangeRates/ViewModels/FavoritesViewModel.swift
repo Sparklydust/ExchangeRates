@@ -56,6 +56,9 @@ extension FavoritesViewModel {
   /// from the api and trim only the favorites
   /// one.
   ///
+  /// - Parameters:
+  ///     - data: fetched api rates data
+  ///
   func handleFavoritesRate(_ data: RatesData) {
     resetOldNewFavoriteRates()
     trimCoreDataSavedRates(data)
@@ -63,6 +66,9 @@ extension FavoritesViewModel {
 
   /// Perform actions on the end of the api call
   /// when finished or on failure.
+  ///
+  /// - Parameters:
+  ///     - completion: Network call publisher completion
   ///
   func handle(_ completion: Subscribers.Completion<NetworkError>) {
     switch completion {
@@ -74,8 +80,11 @@ extension FavoritesViewModel {
     }
   }
 
-  /// Trim fetch data from api to only populate the one
-  /// saved in Core Data.
+  /// Trim fetched data from api to only populate the one
+  /// saved in CoreData.
+  ///
+  /// - Parameters:
+  ///     - data: fetched api rates data
   ///
   func trimCoreDataSavedRates(_ data: RatesData) {
     let fetchedRates = coreDataService.fetch()
@@ -92,13 +101,16 @@ extension FavoritesViewModel {
   /// Trigger the UIKit navigfation controller
   /// set as Spinner in Views.
   ///
+  /// - Parameters:
+  ///     - action: Boolean value
+  ///
   func showActivityIndicator(_ action: Bool) {
     isLoading = action
   }
 
   /// Reset old Favorites Rates with new favorites
-  /// ones and empty new Favorites to receive values
-  /// from api call.
+  /// ones and empty new Favorites before receiving
+  ///  values from api call.
   ///
   func resetOldNewFavoriteRates() {
     oldFavoriteRates = newFavoriteRates
@@ -110,6 +122,10 @@ extension FavoritesViewModel {
 extension FavoritesViewModel {
   /// Delete saved rate from user action in table view
   /// by swiping the cell or using the edit button.
+  ///
+  /// - Parameters:
+  ///     - savedRates: CoreData saved Rate models
+  ///     - indexSet: position of the model in CoreData
   ///
   func deleteFavorite(from savedRates: FetchedResults<Rate>, at indexSet: IndexSet) {
     for i in indexSet {
@@ -123,7 +139,7 @@ extension FavoritesViewModel {
 // MARK: - Timer
 extension FavoritesViewModel {
   /// Connect favorites timer to start network call at regular
-  ///interval.
+  /// interval.
   ///
   func connectUpstreamFavoritesTimer() {
     showActivityIndicator(true)

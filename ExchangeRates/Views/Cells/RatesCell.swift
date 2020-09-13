@@ -11,6 +11,7 @@ import SwiftUI
 //  MARK: RatesCell
 /// Populates live rates with title and values as well as
 /// a button to save rates to favorites
+///
 struct RatesCell: View {
 
   @EnvironmentObject var viewModel: RatesViewModel

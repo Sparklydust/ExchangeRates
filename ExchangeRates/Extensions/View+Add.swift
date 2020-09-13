@@ -9,6 +9,7 @@
 import SwiftUI
 
 extension View {
+  
   /// Add SearchBar View as Modifier into parent View.
   ///
   func add(_ searchBar: SearchBarItem) -> some View {

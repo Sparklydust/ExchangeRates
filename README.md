@@ -3,14 +3,17 @@
 ## by Roland Lariotte
 
 
-This Xcode project is part of an assessment test for the IOS developer position at IronFX.
+
+This Xcode project is part of an assessment test for the senior iOS developer position at IronFX.
 
 
 contact: roland.lariotte@gmail.com
 
 
 
+
 ### Starter
+
 
 1. Start the project using Xcode 11.
 
@@ -31,15 +34,17 @@ You can always change the api baseURL to a https if your currencylayer subscript
 
 (My api key has been hidden using .gitignore, if you need it, send me a message via my contact details)
 
-The application was set to trigger api calls every 65 seconds regarding the currencylayer documentation.
+The application was set to trigger api calls every 62 seconds regarding the currencylayer documentation.
 It is set for a business plan subscription.
 https://currencylayer.com/plan
+
 
 
 
 ### Introduction
 
 ExchangeRates is an iPhone application with a minimum target of iOS13. It had been written using mostly the SwiftUI, Combine and CoreData frameworks in a MVVM architecture. 
+
 
 
 
@@ -50,27 +55,31 @@ ExchangeRates is an iPhone application with a minimum target of iOS13. It had be
 
 This application is set with two tabs on version 1.0 with an UI/UX matching the Apple Human Interface Guideline at its best.
 
-There is also a Documentation folder in the root project with a .sketch file inside that contains: 
+There is also a Documentation folder in the root project with a .sketch file that contains: 
 
 - the app icon 
-- the logo and background images used in the launchscreen
+- the logo and background image used in the launchscreen
 - a custom symbol file that is used for the tab bar image
 - iPhone mockups with screenshots for the AppStore
 
 
+
+
 #### 2. Code Design
 
-As it is a MVVM architecture, the SwiftUI views are being manipulates by two view models that handles the app logic and the models. Each tab has its corresponding view models to be able to expand more logic and views in furure releases. 
+As it is a MVVM architecture, the SwiftUI views are being manipulates by two view models that handles the app logic and the models. Each tab has its corresponding view model to be able to expand more logic and views in furure releases. 
 
 The RatesViewModel handles the RatesView and the DetailsView.
 
 The FavoritesViewModel handles the FavoritesView.
 
-CoreData was used to enable the user to save his/her favorite rates. This action of saving can be done via the details view by clicking on the star. To delete the favorites rates, the user can, via the FavoritesView, swiping the cell to delete or clicking on the edit button in the navigation bar. He/She can also delete the favorite rate by clicking again on the star presented in the DetailsView.
+CoreData was used to enable the user to save his/her favorite rates. This action of saving can be done via the details view by clicking on the star. To delete the favorites rates, the user can, via the FavoritesView, swiping the cell or clicking on the edit button in the navigation bar. He/She can also delete his/her favorite rate by clicking again on the star presented in the DetailsView.
 
 There is a Timer Publisher tool that handles the api calls intervals.
 
 The localizables folder in the project handles the app translations for as many languages as needed for a release.
+
+
 
 
 #### 3. Tests
@@ -78,6 +87,8 @@ The localizables folder in the project handles the app translations for as many 
 XCTestPlan was used for the Unit and UI Tests. It is better to use, as many configurations can be made for different tests cases.
 
 As for the screenshots, a Pre-actions and Post-action was added to the Test scheme for the simulator to show a status bar with the regular App Store screenshots settings.
+
+
 
 
 #### 4. Third-party libraries

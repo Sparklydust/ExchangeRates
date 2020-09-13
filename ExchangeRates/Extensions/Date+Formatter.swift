@@ -9,8 +9,9 @@
 import Foundation
 
 extension Date {
-  /// Format timestamp converted value to a cleaner
-  /// date and time format for user.
+
+  /// Format timestamp value to a readable date and time
+  /// format for user.
   ///
   func formatted() -> String {
     let formatter = DateFormatter()

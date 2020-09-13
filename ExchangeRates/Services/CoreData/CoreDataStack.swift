@@ -24,7 +24,7 @@ open class CoreDataStack {
 
   @EnvironmentObject var ratesViewModel: RatesViewModel
 
-  /// Core Data persistent container..
+  /// Core Data persistent container.
   ///
   public lazy var persistentContainer: NSPersistentContainer = {
     let container = NSPersistentContainer(name: self.modelName)
@@ -36,7 +36,7 @@ open class CoreDataStack {
     return container
   }()
 
-  /// CoreData view context passed in ContentView in SceneDelegate.
+  /// CoreData view context passed in ContentView inside SceneDelegate.
   ///
   public lazy var viewContext: NSManagedObjectContext = {
     return persistentContainer.viewContext

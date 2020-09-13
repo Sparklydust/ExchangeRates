@@ -57,7 +57,10 @@ extension RatesViewModel {
   }
 
   /// Perform actions on the rates data coming
-  /// from the api where needed.
+  /// from the api.
+  ///
+  /// - Parameters:
+  ///     - data: fetched api rates data
   ///
   func handleRates(_ data: RatesData) {
     setupOldRatesNewRates(with: data)
@@ -68,6 +71,9 @@ extension RatesViewModel {
   /// Perform actions on the end of the api call
   /// when finished or on failure.
   ///
+  /// - Parameters:
+  ///     - completion: Network call publisher completion
+  ///     
   func handle(_ completion: Subscribers.Completion<NetworkError>) {
     switch completion {
     case .failure:
@@ -81,6 +87,9 @@ extension RatesViewModel {
   /// Trigger the UIKit navigfation controller
   /// set as Spinner in Views.
   ///
+  /// - Parameters:
+  ///     - action: Boolean value
+  ///
   func showActivityIndicator(_ action: Bool) {
     isLoading = action
   }
@@ -91,7 +100,8 @@ extension RatesViewModel {
   /// - Warning: Order of the action must be kept
   /// this way in the method.
   ///
-  /// - Parameter data: rates data fetch from api call.
+  /// - Parameters:
+  ///     - data: rates data fetch from api call.
   ///
   func setupOldRatesNewRates(with data: RatesData) {
     resetOldNewRates()
@@ -100,22 +110,25 @@ extension RatesViewModel {
   }
 
   /// Reset old Rates with new rates and empty
-  /// new rates to receive values from api call.
+  /// new rates to set new values from api call.
   ///
   func resetOldNewRates() {
     oldRates = newRates
     newRates = [String: Double]()
   }
 
-  /// Setup the currency of the user coming from
-  /// the api.
+  /// Setup the main currency exchange rates to
+  /// the user coming from the api.
   ///
   func setupCurrency() {
     currency = rates.source
   }
 
-  /// Set the color of the rate by comparing with the old
-  /// one fetched from api. Set to blue for first api call.
+  /// Set the color of the rate.
+  ///
+  /// Comparewith the old one fetched from api. Set to
+  /// blue for first api call or if value has not changed
+  /// from last call.
   ///
   func colorFinder(for data: Dictionary<String, Double>.Element) -> Color {
     for o in oldRates {
@@ -131,8 +144,11 @@ extension RatesViewModel {
     return .blue
   }
 
-  /// Set the arrow of the rate by comparing with the old one
-  /// fetched from api. Set to arrowUpDown for first api call.
+  /// Set the arrow of the rate.
+  ///
+  /// Comparing with the old one fetched from api.Set
+  /// to arrowUpDown for first api call or if value has
+  /// not changed from last call.
   ///
   func arrowFinder(for data: Dictionary<String, Double>.Element) -> Image {
     for o in oldRates {
@@ -196,6 +212,9 @@ extension RatesViewModel {
   /// User favorites a rate in Details view and save it in
   /// Core Data.
   ///
+  /// - Parameters:
+  ///     - symbol: rate symbol shown in the DetailsView
+  ///
   func favoriteStarIsTapped(for symbol: String) {
     if isFavorited {
       let fetchedRates = coreDataService.fetch()
@@ -214,6 +233,9 @@ extension RatesViewModel {
 
   /// To fill the favorite star if the user already
   /// save the rate in Core Data.
+  ///
+  /// - Parameters:
+  ///     - symbol: rate symbol shown in the DetailsView
   ///
   func checkForSaved(_ symbol: String) {
     isFavorited = false
@@ -286,6 +308,9 @@ extension RatesViewModel {
 extension RatesViewModel {
   /// Format the price and currency depending
   /// on user localization.
+  ///
+  /// - Parameters:
+  ///     - price: rate price fetched from api
   ///
   func populateFormatted(_ price: Double) -> String {
 

@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-// MARK: EmptyFavoritesMessage
+//  MARK: EmptyFavoritesMessage
 /// Populate message to user on an Empty FavoritesView Tab.
 ///
 struct EmptyFavoritesMessage: View {

@@ -14,7 +14,7 @@ import CoreData
 /// Core Data.
 ///
 /// managedObjectContext and coreDataStack initializer are for
-/// the unit test only and mock CoreDataService.
+/// the unit test only and to mock CoreDataService.
 ///
 final class CoreDataService {
 
@@ -30,9 +30,9 @@ final class CoreDataService {
   }
 }
 
-/// MARK: - CoreData Actions
+// MARK: - CoreData Actions
 extension CoreDataService {
-  /// Save Core Data Rate model in memory.
+  /// Save Core Data Rate model in device memory.
   ///
   func save(symbol: String) -> Rate? {
     let rateData = Rate(context: managedObjectContext)
@@ -43,7 +43,7 @@ extension CoreDataService {
 
     return rateData
   }
-  /// Fetch array of Core Data Rate models from memory.
+  /// Fetch array of Core Data Rate models from device memory.
   ///
   func fetch() -> [Rate] {
     let fetchRequest: NSFetchRequest<Rate> = Rate.fetchRequest()
@@ -53,7 +53,7 @@ extension CoreDataService {
     return rates
   }
 
-  /// Delete Core Data Rate model in memory.
+  /// Delete Core Data Rate model in device memory.
   ///
   func delete(rate: NSManagedObject) {
     managedObjectContext.delete(rate)

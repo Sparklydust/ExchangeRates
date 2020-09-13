@@ -14,6 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   var window: UIWindow?
 
   // MARK: EnvironmentObjects
+  var managedObjectContext = CoreDataStack.shared.viewContext
   var ratesViewModel = RatesViewModel()
   var favoritesViewModel = FavoritesViewModel()
   var searchBar = SearchBarItem()
@@ -21,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
     let contentView = ContentView()
-      .environment(\.managedObjectContext, CoreDataStack.shared.viewContext)
+      .environment(\.managedObjectContext, managedObjectContext)
       .environmentObject(ratesViewModel)
       .environmentObject(favoritesViewModel)
       .environmentObject(searchBar)

@@ -9,7 +9,7 @@
 import SwiftUI
 
 //  MARK: Spinner
-/// Representing the UIKit Activity Controller for View.
+/// Representing the UIKit Activity Controller for Views.
 ///
 struct Spinner: UIViewRepresentable {
 

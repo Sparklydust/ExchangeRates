@@ -12,7 +12,7 @@ import Foundation
 /// Network.plist file String key.
 ///
 /// Enumaration of the String keys to access the
-/// Network.plist file that contains all the API
+/// NetworkIronFX.plist file that contains all the API
 /// addresses and keys needed in the app. This enum
 /// is attached to NetworkAPIManager.swift file.
 ///

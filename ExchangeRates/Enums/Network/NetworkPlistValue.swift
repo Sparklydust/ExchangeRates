@@ -12,7 +12,7 @@ import Foundation
 /// Network.plist file nested dictionary String key to retrieve value.
 ///
 /// Enumaration of the String keys to access the
-/// Network.plist nested dictionary value that contains
+/// NetworkIronFX.plist nested dictionary value that contains
 /// all the API addresses and keys needed in the app.
 /// This enum is attached to NetworkAPIManager.swift
 /// file.

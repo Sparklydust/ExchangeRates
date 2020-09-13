@@ -11,19 +11,25 @@ import Foundation
 //  MARK: NetworkEndpoint
 /// ExchangeRates network url endpoints enumaration.
 ///
-/// All urls are handled by this enum with a base url retrieve
-/// from the Network.plist file as well as the api key.
+/// All urls are handled by this enum with a base url retrieved
+/// inside the NetworkIronFX.plist file as well as the api key.
 ///
 enum NetworkEndpoint {
 
-  /// Currencylayer.com base api url
+  /// Currencylayer.com base api url.
+  ///
   static let baseURL = URL(string: "\(NetworkAPIManager.retrieve(.apiBase, .currencylayer))")
-  /// Currencylayer.com personal api key
+
+  /// Currencylayer.com personal api key.
+  ///
   static let apiKey = NetworkAPIManager.retrieve(.apiKey, .currencylayer)
 
-  /// URL key path access value for api call
+  /// URL key path access value for api call.
+  ///
   static let accessKey = "?access_key=\(NetworkEndpoint.apiKey)"
 
+  /// Fetching live rates endpoint.
+  ///
   case live
 
   var url: URL {

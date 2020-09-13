@@ -14,7 +14,7 @@ import Combine
 ///
 /// Request being made within this application are being
 /// set here with a resourceURL as full url. ResourceSession
-/// is set to be used for unit test only and mock URLSession.
+/// is set to be used for unit test only and to mock URLSession.
 ///
 final class NetworkRequest<Resource> where Resource: Codable {
 

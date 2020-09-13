@@ -9,7 +9,7 @@
 import SwiftUI
 
 //  MARK: DetailsTitle
-/// Populate rate symbol and price with arrow.up or .down
+/// Populate rate symbol and price with arrow.up or .down.
 ///
 struct DetailsTitle: View {
 
