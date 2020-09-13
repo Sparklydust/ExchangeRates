@@ -27,10 +27,31 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "# Simulator status bar setup&#10;# Pre-actions&#10;xcrun simctl status_bar booted override \&#10;  --time &quot;9:41 AM&quot; \&#10;  --dataNetwork wifi \&#10;  --wifiMode active \&#10;  --wifiBars 3 \&#10;  --cellularMode active \&#10;  --cellularBars 4 \&#10;  --batteryLevel 100 \&#10;">
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "# Simulator status bar setup&#10;# Pre-actions&#10;xcrun simctl status_bar booted clear&#10;">
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
       <TestPlans>
          <TestPlanReference
             reference = "container:ExchangeRatesXCTestPlans/Development.xctestplan"
             default = "YES">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:ExchangeRatesXCTestPlans/Marketing.xctestplan">
          </TestPlanReference>
       </TestPlans>
       <Testables>
@@ -41,6 +62,16 @@
                BlueprintIdentifier = "2A964F252508F3E300EB7D6C"
                BuildableName = "ExchangeRatesTests.xctest"
                BlueprintName = "ExchangeRatesTests"
+               ReferencedContainer = "container:ExchangeRates.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2A36D0A0250E38C500504FE5"
+               BuildableName = "ExchangeRatesUITests.xctest"
+               BlueprintName = "ExchangeRatesUITests"
                ReferencedContainer = "container:ExchangeRates.xcodeproj">
             </BuildableReference>
          </TestableReference>

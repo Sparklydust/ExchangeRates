@@ -56,15 +56,12 @@ struct FavoritesView: View {
     }
     .onAppear {
       self.viewModel.connectUpstreamFavoritesTimer()
-      print("🤹‍♀️")
     }
     .onReceive(viewModel.favoritesTimer.connectedPublisher) { _ in
       self.viewModel.downloadFavoritesLiveRates()
-      print("🎭")
     }
     .onDisappear {
       self.viewModel.disconnectUpstreamFavoritesTimer()
-      print("🎷")
     }
     .alert(isPresented: $viewModel.showNetworkAlert) {
       self.viewModel.showNetworkErrorAlert()

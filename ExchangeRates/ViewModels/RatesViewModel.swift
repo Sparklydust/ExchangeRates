@@ -94,7 +94,7 @@ extension RatesViewModel {
   /// - Parameter data: rates data fetch from api call.
   ///
   func setupOldRatesNewRates(with data: RatesData) {
-    resetOldRatesNewRates()
+    resetOldNewRates()
     newRates = data.quotes
     rates = data
   }
@@ -102,7 +102,7 @@ extension RatesViewModel {
   /// Reset old Rates with new rates and empty
   /// new rates to receive values from api call.
   ///
-  func resetOldRatesNewRates() {
+  func resetOldNewRates() {
     oldRates = newRates
     newRates = [String: Double]()
   }

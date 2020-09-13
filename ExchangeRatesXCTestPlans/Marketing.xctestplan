@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "DC2193D2-FEFC-4F06-9A61-DA9FEA7A5F72",
+      "name" : "English",
+      "options" : {
+        "language" : "en",
+        "locationScenario" : {
+          "identifier" : "London, England",
+          "referenceType" : "built-in"
+        },
+        "region" : "GB"
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "uiTestingScreenshotsLifetime" : "keepNever",
+    "userAttachmentLifetime" : "keepAlways"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:ExchangeRates.xcodeproj",
+        "identifier" : "2A36D0A0250E38C500504FE5",
+        "name" : "ExchangeRatesUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

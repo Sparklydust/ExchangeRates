@@ -12,6 +12,7 @@
 		2A12372725090A2F00868DAA /* Image+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A12372625090A2F00868DAA /* Image+Name.swift */; };
 		2A12372A25090B0F00868DAA /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A12372925090B0F00868DAA /* TabItem.swift */; };
 		2A36D09B250E030D00504FE5 /* ExchangeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A36D09A250E030D00504FE5 /* ExchangeTimer.swift */; };
+		2A36D0A4250E38C600504FE5 /* MarketingScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A36D0A3250E38C600504FE5 /* MarketingScreenshots.swift */; };
 		2A49F1AE25090F68005A3985 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A49F1B025090F68005A3985 /* Localizable.strings */; };
 		2A49F1B225090F94005A3985 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1B125090F94005A3985 /* Localized.swift */; };
 		2A49F1B425091765005A3985 /* Network.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A49F1B325091765005A3985 /* Network.plist */; };
@@ -58,6 +59,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2A36D0A6250E38C600504FE5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A964F082508F3DC00EB7D6C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A964F0F2508F3DC00EB7D6C;
+			remoteInfo = ExchangeRates;
+		};
 		2A964F272508F3E300EB7D6C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2A964F082508F3DC00EB7D6C /* Project object */;
@@ -74,6 +82,10 @@
 		2A12372625090A2F00868DAA /* Image+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Name.swift"; sourceTree = "<group>"; };
 		2A12372925090B0F00868DAA /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		2A36D09A250E030D00504FE5 /* ExchangeTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeTimer.swift; sourceTree = "<group>"; };
+		2A36D09C250E38A000504FE5 /* Marketing.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Marketing.xctestplan; sourceTree = "<group>"; };
+		2A36D0A1250E38C600504FE5 /* ExchangeRatesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExchangeRatesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A36D0A3250E38C600504FE5 /* MarketingScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketingScreenshots.swift; sourceTree = "<group>"; };
+		2A36D0A5250E38C600504FE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A49F1AF25090F68005A3985 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A49F1B125090F94005A3985 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		2A49F1B325091765005A3985 /* Network.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Network.plist; sourceTree = "<group>"; };
@@ -124,6 +136,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2A36D09E250E38C500504FE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2A964F0D2508F3DC00EB7D6C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -180,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				2A12371F2508FFFF00868DAA /* Development.xctestplan */,
+				2A36D09C250E38A000504FE5 /* Marketing.xctestplan */,
 			);
 			path = ExchangeRatesXCTestPlans;
 			sourceTree = "<group>";
@@ -234,6 +254,39 @@
 				2A36D09A250E030D00504FE5 /* ExchangeTimer.swift */,
 			);
 			path = Timer;
+			sourceTree = "<group>";
+		};
+		2A36D0A2250E38C600504FE5 /* ExchangeRatesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2A36D0AB250E3B5600504FE5 /* SupportingFiles */,
+				2A36D0AC250E3B6600504FE5 /* Cases */,
+			);
+			path = ExchangeRatesUITests;
+			sourceTree = "<group>";
+		};
+		2A36D0AB250E3B5600504FE5 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				2A36D0A5250E38C600504FE5 /* Info.plist */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		2A36D0AC250E3B6600504FE5 /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				2A36D0AD250E3B7200504FE5 /* Screenshots */,
+			);
+			name = Cases;
+			sourceTree = "<group>";
+		};
+		2A36D0AD250E3B7200504FE5 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				2A36D0A3250E38C600504FE5 /* MarketingScreenshots.swift */,
+			);
+			name = Screenshots;
 			sourceTree = "<group>";
 		};
 		2A49F1AB25090F1E005A3985 /* Localizables */ = {
@@ -525,6 +578,7 @@
 				2A964F122508F3DC00EB7D6C /* ExchangeRates */,
 				2A12371E2508FF7E00868DAA /* ExchangeRatesXCTestPlans */,
 				2A964F292508F3E300EB7D6C /* ExchangeRatesTests */,
+				2A36D0A2250E38C600504FE5 /* ExchangeRatesUITests */,
 				2A964F112508F3DC00EB7D6C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -534,6 +588,7 @@
 			children = (
 				2A964F102508F3DC00EB7D6C /* ExchangeRates.app */,
 				2A964F262508F3E300EB7D6C /* ExchangeRatesTests.xctest */,
+				2A36D0A1250E38C600504FE5 /* ExchangeRatesUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -579,6 +634,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2A36D0A0250E38C500504FE5 /* ExchangeRatesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A36D0A8250E38C600504FE5 /* Build configuration list for PBXNativeTarget "ExchangeRatesUITests" */;
+			buildPhases = (
+				2A36D09D250E38C500504FE5 /* Sources */,
+				2A36D09E250E38C500504FE5 /* Frameworks */,
+				2A36D09F250E38C500504FE5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A36D0A7250E38C600504FE5 /* PBXTargetDependency */,
+			);
+			name = ExchangeRatesUITests;
+			productName = ExchangeRatesUITests;
+			productReference = 2A36D0A1250E38C600504FE5 /* ExchangeRatesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		2A964F0F2508F3DC00EB7D6C /* ExchangeRates */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A964F2F2508F3E300EB7D6C /* Build configuration list for PBXNativeTarget "ExchangeRates" */;
@@ -620,10 +693,14 @@
 		2A964F082508F3DC00EB7D6C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1160;
+				LastSwiftUpdateCheck = 1170;
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "Roland Lariotte";
 				TargetAttributes = {
+					2A36D0A0250E38C500504FE5 = {
+						CreatedOnToolsVersion = 11.7;
+						TestTargetID = 2A964F0F2508F3DC00EB7D6C;
+					};
 					2A964F0F2508F3DC00EB7D6C = {
 						CreatedOnToolsVersion = 11.6;
 					};
@@ -648,11 +725,19 @@
 			targets = (
 				2A964F0F2508F3DC00EB7D6C /* ExchangeRates */,
 				2A964F252508F3E300EB7D6C /* ExchangeRatesTests */,
+				2A36D0A0250E38C500504FE5 /* ExchangeRatesUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2A36D09F250E38C500504FE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2A964F0E2508F3DC00EB7D6C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -676,6 +761,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2A36D09D250E38C500504FE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A36D0A4250E38C600504FE5 /* MarketingScreenshots.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2A964F0C2508F3DC00EB7D6C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -735,6 +828,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2A36D0A7250E38C600504FE5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2A964F0F2508F3DC00EB7D6C /* ExchangeRates */;
+			targetProxy = 2A36D0A6250E38C600504FE5 /* PBXContainerItemProxy */;
+		};
 		2A964F282508F3E300EB7D6C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2A964F0F2508F3DC00EB7D6C /* ExchangeRates */;
@@ -762,6 +860,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2A36D0A9250E38C600504FE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P8UNJX8SHV;
+				INFOPLIST_FILE = ExchangeRatesUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RolandLariotte.ExchangeRatesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ExchangeRates;
+			};
+			name = Debug;
+		};
+		2A36D0AA250E38C600504FE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P8UNJX8SHV;
+				INFOPLIST_FILE = ExchangeRatesUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RolandLariotte.ExchangeRatesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ExchangeRates;
+			};
+			name = Release;
+		};
 		2A964F2D2508F3E300EB7D6C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -965,6 +1103,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2A36D0A8250E38C600504FE5 /* Build configuration list for PBXNativeTarget "ExchangeRatesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A36D0A9250E38C600504FE5 /* Debug */,
+				2A36D0AA250E38C600504FE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2A964F0B2508F3DC00EB7D6C /* Build configuration list for PBXProject "ExchangeRates" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -26,8 +26,8 @@ final class FavoritesViewModel: ObservableObject {
   @Published var isLoading = false
 
   // Data
-  @Published var newFavoriteRates = [String: Double]()
   @Published var oldFavoriteRates = [String: Double]()
+  @Published var newFavoriteRates = [String: Double]()
 }
 
 extension FavoritesViewModel {
@@ -57,7 +57,7 @@ extension FavoritesViewModel {
   /// one.
   ///
   func handleFavoritesRate(_ data: RatesData) {
-    resetOldFavoriteRatesNewFavoriteRates()
+    resetOldNewFavoriteRates()
     trimCoreDataSavedRates(data)
   }
 
@@ -100,7 +100,7 @@ extension FavoritesViewModel {
   /// ones and empty new Favorites to receive values
   /// from api call.
   ///
-  func resetOldFavoriteRatesNewFavoriteRates() {
+  func resetOldNewFavoriteRates() {
     oldFavoriteRates = newFavoriteRates
     newFavoriteRates = [String: Double]()
   }

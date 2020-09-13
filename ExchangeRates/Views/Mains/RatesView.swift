@@ -48,15 +48,12 @@ struct RatesView: View {
     }
     .onAppear {
       self.viewModel.connectUpstreamRatesTimer()
-      print("😀")
     }
     .onReceive(viewModel.ratesTimer.connectedPublisher) { _ in
       self.viewModel.downloadLiveRates()
-      print("🥶")
     }
     .onDisappear {
       self.viewModel.disconnectUpstreamRatesTimer()
-      print("😡")
     }
     .alert(isPresented: $viewModel.showNetworkAlert) {
       self.viewModel.showNetworkErrorAlert()
