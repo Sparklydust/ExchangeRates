@@ -16,17 +16,14 @@ final class FavoritesViewModel: ObservableObject {
   
   private var subscriptions = Set<AnyCancellable>()
 
+  // Models
+  @ObservedObject var favoritesTimer = ExchangeTimer()
   var coreDataService = CoreDataService()
 
   // UI Levers
   @Published var showNetworkAlert = false
   @Published var showTryAgainButton = false
   @Published var isLoading = false
-
-  // Timer
-  @Published var favoritesTimer = Timer
-    .publish(every: 65, on: .main, in: .common)
-    .autoconnect()
 
   // Data
   @Published var newFavoriteRates = [String: Double]()
@@ -43,7 +40,6 @@ extension FavoritesViewModel {
     let fetchRates = coreDataService.fetch()
     guard !fetchRates.isEmpty else { return }
 
-    showActivityIndicator(true)
     NetworkRequest<RatesData>(.live).download()
       .sink(
         receiveCompletion: { [weak self] completion in
@@ -130,10 +126,9 @@ extension FavoritesViewModel {
   ///interval.
   ///
   func connectUpstreamFavoritesTimer() {
+    showActivityIndicator(true)
     downloadFavoritesLiveRates()
-    favoritesTimer = Timer
-      .publish(every: 65, on: .main, in: .common)
-      .autoconnect()
+    favoritesTimer.connect()
   }
 
   /// User cancel timer from Alert to stop making network
@@ -149,10 +144,7 @@ extension FavoritesViewModel {
   /// FavoriteView.
   ///
   func disconnectUpstreamFavoritesTimer() {
-    favoritesTimer
-      .upstream
-      .connect()
-      .cancel()
+    favoritesTimer.disconnect()
   }
 
   /// User trigger Timer again from Alert to restart

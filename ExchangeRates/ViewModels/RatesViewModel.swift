@@ -16,6 +16,8 @@ final class RatesViewModel: ObservableObject {
 
   private var subscriptions = Set<AnyCancellable>()
 
+  // Models
+  @ObservedObject var ratesTimer = ExchangeTimer()
   var coreDataService = CoreDataService()
 
   // UI Levers
@@ -26,13 +28,8 @@ final class RatesViewModel: ObservableObject {
   @Published var showCoreDataCrash = false
   @Published var isFavorited = false
 
-  // Timer
-  @Published var date = Date()
-  @Published var ratesTimer = Timer
-    .publish(every: 65, on: .main, in: .common)
-    .autoconnect()
-
   // Data
+  @Published var date = Date()
   @Published var rates = RatesData()
   @Published var oldRates = [String: Double]()
   @Published var newRates = [String: Double]()
@@ -47,7 +44,6 @@ extension RatesViewModel {
   /// On error, trigger Alert to the user.
   ///
   func downloadLiveRates() {
-    showActivityIndicator(true)
     NetworkRequest<RatesData>(.live).download()
       .sink(
         receiveCompletion: { [weak self] completion in
@@ -159,10 +155,9 @@ extension RatesViewModel {
   /// interval.
   ///
   func connectUpstreamRatesTimer() {
+    showActivityIndicator(true)
     downloadLiveRates()
-    ratesTimer = Timer
-      .publish(every: 65, on: .main, in: .common)
-      .autoconnect()
+    ratesTimer.connect()
   }
 
   /// User cancel timer from Alert to stop making network
@@ -178,10 +173,7 @@ extension RatesViewModel {
   /// RatesView.
   ///
   func disconnectUpstreamRatesTimer() {
-    ratesTimer
-      .upstream
-      .connect()
-      .cancel()
+    ratesTimer.disconnect()
   }
 
   /// User trigger Timer again from Alert to restart

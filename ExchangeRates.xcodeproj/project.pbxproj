@@ -11,6 +11,7 @@
 		2A1237242509095100868DAA /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1237232509095100868DAA /* FavoritesView.swift */; };
 		2A12372725090A2F00868DAA /* Image+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A12372625090A2F00868DAA /* Image+Name.swift */; };
 		2A12372A25090B0F00868DAA /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A12372925090B0F00868DAA /* TabItem.swift */; };
+		2A36D09B250E030D00504FE5 /* ExchangeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A36D09A250E030D00504FE5 /* ExchangeTimer.swift */; };
 		2A49F1AE25090F68005A3985 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A49F1B025090F68005A3985 /* Localizable.strings */; };
 		2A49F1B225090F94005A3985 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49F1B125090F94005A3985 /* Localized.swift */; };
 		2A49F1B425091765005A3985 /* Network.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A49F1B325091765005A3985 /* Network.plist */; };
@@ -72,6 +73,7 @@
 		2A1237232509095100868DAA /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		2A12372625090A2F00868DAA /* Image+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Name.swift"; sourceTree = "<group>"; };
 		2A12372925090B0F00868DAA /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
+		2A36D09A250E030D00504FE5 /* ExchangeTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeTimer.swift; sourceTree = "<group>"; };
 		2A49F1AF25090F68005A3985 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A49F1B125090F94005A3985 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		2A49F1B325091765005A3985 /* Network.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Network.plist; sourceTree = "<group>"; };
@@ -218,6 +220,22 @@
 			path = Navigations;
 			sourceTree = "<group>";
 		};
+		2A36D098250E02E200504FE5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2A49F1B625091F56005A3985 /* NetworkAPIManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		2A36D099250E02F000504FE5 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				2A36D09A250E030D00504FE5 /* ExchangeTimer.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
 		2A49F1AB25090F1E005A3985 /* Localizables */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,7 +248,8 @@
 		2A49F1B525091F2E005A3985 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				2A49F1B625091F56005A3985 /* NetworkAPIManager.swift */,
+				2A36D098250E02E200504FE5 /* Network */,
+				2A36D099250E02F000504FE5 /* Timer */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -686,6 +705,7 @@
 				2A49F20C250B56BD005A3985 /* View+Add.swift in Sources */,
 				2A49F208250AD4F7005A3985 /* SearchBarItem.swift in Sources */,
 				2A964F142508F3DC00EB7D6C /* AppDelegate.swift in Sources */,
+				2A36D09B250E030D00504FE5 /* ExchangeTimer.swift in Sources */,
 				2A49F254250BCB2C005A3985 /* FavoritesViewModel.swift in Sources */,
 				2A49F210250B5763005A3985 /* SearchBarModifier.swift in Sources */,
 				2A964F162508F3DC00EB7D6C /* SceneDelegate.swift in Sources */,

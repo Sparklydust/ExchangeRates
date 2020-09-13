@@ -51,7 +51,7 @@ class CoreDataServiceTests: XCTestCase {
     var fetchedRate = sut.fetch()
     XCTAssertNotNil(fetchedRate)
 
-    sut.delete(symbol: fetchedRate[0])
+    sut.delete(rate: fetchedRate[0])
     fetchedRate = sut.fetch()
 
     XCTAssertEqual(fetchedRate, [])
