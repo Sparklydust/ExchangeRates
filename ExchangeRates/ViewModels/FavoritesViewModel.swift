@@ -24,8 +24,8 @@ final class FavoritesViewModel: ObservableObject {
   @Published var isLoading = false
 
   // Timer
-  @Published var favoriteTimer = Timer
-    .publish(every: 61, on: .main, in: .common)
+  @Published var favoritesTimer = Timer
+    .publish(every: 65, on: .main, in: .common)
     .autoconnect()
 
   // Data
@@ -52,24 +52,17 @@ extension FavoritesViewModel {
         receiveValue: { [weak self] data in
           guard let self = self else { return }
           withAnimation(.easeInOut) {
-            self.trimCoreDataSavedRates(data) } })
+            self.handleFavoritesRate(data) } })
       .store(in: &subscriptions)
   }
 
-  /// Trim fetch data from api to only populate the one
-  /// saved in Core Data.
+  /// Perform actions on the rates data coming
+  /// from the api and trim only the favorites
+  /// one.
   ///
-  func trimCoreDataSavedRates(_ data: RatesData) {
+  func handleFavoritesRate(_ data: RatesData) {
     resetOldFavoriteRatesNewFavoriteRates()
-    let fetchedRates = coreDataService.fetch()
-
-    for i in data.quotes {
-      for j in fetchedRates {
-        if i.key == j.symbol {
-          newFavoriteRates.updateValue(i.value, forKey: i.key)
-        }
-      }
-    }
+    trimCoreDataSavedRates(data)
   }
 
   /// Perform actions on the end of the api call
@@ -82,6 +75,21 @@ extension FavoritesViewModel {
     case .finished:
       showActivityIndicator(false)
       break
+    }
+  }
+
+  /// Trim fetch data from api to only populate the one
+  /// saved in Core Data.
+  ///
+  func trimCoreDataSavedRates(_ data: RatesData) {
+    let fetchedRates = coreDataService.fetch()
+
+    for i in data.quotes {
+      for j in fetchedRates {
+        if i.key == j.symbol {
+          newFavoriteRates.updateValue(i.value, forKey: i.key)
+        }
+      }
     }
   }
 
@@ -118,20 +126,31 @@ extension FavoritesViewModel {
 
 // MARK: - Timer
 extension FavoritesViewModel {
+  /// Connect favorites timer to start network call at regular
+  ///interval.
+  ///
+  func connectUpstreamFavoritesTimer() {
+    downloadFavoritesLiveRates()
+    favoritesTimer = Timer
+      .publish(every: 65, on: .main, in: .common)
+      .autoconnect()
+  }
+
   /// User cancel timer from Alert to stop making network
   /// request in FavoriteView.
   ///
-  func cancelUpstreamTimer() {
+  func cancelUpstreamFavoritesTimer() {
     self.isLoading = false
     showTryAgainButton = true
-    disconnectUpstreamTimer()
+    disconnectUpstreamFavoritesTimer()
   }
 
   /// Disconnect Timer to stop making network request in
   /// FavoriteView.
   ///
-  func disconnectUpstreamTimer() {
-    favoriteTimer.upstream
+  func disconnectUpstreamFavoritesTimer() {
+    favoritesTimer
+      .upstream
       .connect()
       .cancel()
   }
@@ -139,12 +158,9 @@ extension FavoritesViewModel {
   /// User trigger Timer again from Alert to restart
   /// network request.
   ///
-  func tryAgainUpstreamTimer() {
+  func tryAgainUpstreamFavoritesTimer() {
     showTryAgainButton = false
-    favoriteTimer.upstream
-      .connect()
-      .store(in: &subscriptions)
-    downloadFavoritesLiveRates()
+    connectUpstreamFavoritesTimer()
   }
 }
 
@@ -159,9 +175,9 @@ extension FavoritesViewModel {
           message: Text(Localized.favoritesDataErrorMessage),
           primaryButton: .cancel {
             withAnimation(.easeInOut) {
-              self.cancelUpstreamTimer() }},
+              self.cancelUpstreamFavoritesTimer() }},
           secondaryButton: .default(Text(Localized.tryAgain)) {
-            self.tryAgainUpstreamTimer()
+            self.tryAgainUpstreamFavoritesTimer()
       })
   }
 }

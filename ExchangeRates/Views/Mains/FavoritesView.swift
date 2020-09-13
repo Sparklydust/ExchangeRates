@@ -29,7 +29,7 @@ struct FavoritesView: View {
           }
           else {
             if viewModel.showTryAgainButton {
-              TryAgainButton(action: { self.viewModel.tryAgainUpstreamTimer() })
+              TryAgainButton(action: { self.viewModel.tryAgainUpstreamFavoritesTimer() })
             }
             else {
               List {
@@ -55,13 +55,13 @@ struct FavoritesView: View {
       }
     }
     .onAppear {
-      self.viewModel.downloadFavoritesLiveRates()
+      self.viewModel.connectUpstreamFavoritesTimer()
     }
-    .onReceive(viewModel.favoriteTimer) { _ in
+    .onReceive(viewModel.favoritesTimer) { _ in
       self.viewModel.downloadFavoritesLiveRates()
     }
     .onDisappear {
-      self.viewModel.disconnectUpstreamTimer()
+      self.viewModel.disconnectUpstreamFavoritesTimer()
     }
     .alert(isPresented: $viewModel.showNetworkAlert) {
       self.viewModel.showNetworkErrorAlert()

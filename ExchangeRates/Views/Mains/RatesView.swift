@@ -22,7 +22,7 @@ struct RatesView: View {
       ZStack(alignment: .center) {
         VStack {
           if viewModel.showTryAgainButton {
-            TryAgainButton(action: { self.viewModel.tryAgainUpstreamTimer() })
+            TryAgainButton(action: { self.viewModel.tryAgainUpstreamRatesTimer() })
           }
           else {
             List(viewModel.newRates.sorted(by: <)
@@ -47,13 +47,13 @@ struct RatesView: View {
       }
     }
     .onAppear {
-      self.viewModel.downloadLiveRates()
+      self.viewModel.connectUpstreamRatesTimer()
     }
     .onReceive(viewModel.ratesTimer) { _ in
       self.viewModel.downloadLiveRates()
     }
     .onDisappear {
-      self.viewModel.disconnectUpstreamTimer()
+      self.viewModel.disconnectUpstreamRatesTimer()
     }
     .alert(isPresented: $viewModel.showNetworkAlert) {
       self.viewModel.showNetworkErrorAlert()

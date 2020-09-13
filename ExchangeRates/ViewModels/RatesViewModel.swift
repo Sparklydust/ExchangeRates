@@ -29,7 +29,7 @@ final class RatesViewModel: ObservableObject {
   // Timer
   @Published var date = Date()
   @Published var ratesTimer = Timer
-    .publish(every: 61, on: .main, in: .common)
+    .publish(every: 65, on: .main, in: .common)
     .autoconnect()
 
   // Data
@@ -155,20 +155,31 @@ extension RatesViewModel {
 
 // MARK: - Timer
 extension RatesViewModel {
+  /// Connect rates timer to start network call at regular
+  /// interval.
+  ///
+  func connectUpstreamRatesTimer() {
+    downloadLiveRates()
+    ratesTimer = Timer
+      .publish(every: 65, on: .main, in: .common)
+      .autoconnect()
+  }
+
   /// User cancel timer from Alert to stop making network
   /// request in RatesView.
   ///
-  func cancelUpstreamTimer() {
+  func cancelUpstreamRatesTimer() {
     self.isLoading = false
     showTryAgainButton = true
-    disconnectUpstreamTimer()
+    disconnectUpstreamRatesTimer()
   }
 
   /// Disconnect Timer to stop making network request in
   /// RatesView.
   ///
-  func disconnectUpstreamTimer() {
-    ratesTimer.upstream
+  func disconnectUpstreamRatesTimer() {
+    ratesTimer
+      .upstream
       .connect()
       .cancel()
   }
@@ -176,12 +187,9 @@ extension RatesViewModel {
   /// User trigger Timer again from Alert to restart
   /// network request.
   ///
-  func tryAgainUpstreamTimer() {
+  func tryAgainUpstreamRatesTimer() {
     showTryAgainButton = false
-    ratesTimer.upstream
-      .connect()
-      .store(in: &subscriptions)
-    downloadLiveRates()
+    connectUpstreamRatesTimer()
   }
 
   /// Convert timestamp value to a readable Date format.
@@ -241,9 +249,9 @@ extension RatesViewModel {
           message: Text(Localized.networkErrorMessage),
           primaryButton: .cancel {
             withAnimation(.easeInOut) {
-              self.cancelUpstreamTimer() }},
+              self.cancelUpstreamRatesTimer() }},
           secondaryButton: .default(Text(Localized.tryAgain)) {
-            self.tryAgainUpstreamTimer()
+            self.tryAgainUpstreamRatesTimer()
       })
   }
 
