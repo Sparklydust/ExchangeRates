@@ -14,12 +14,13 @@ contact: roland.lariotte@gmail.com
 
 ### Starter
 
+1. Use branch 'main' of the project.
 
-1. Start the project using Xcode 11.
+2. Start the project using Xcode 11.
 
-2. Add your Apple team membership in the Signing & Capabilities for the ExchangeRates, ExchangeRatesTests and ExchangeRatesUITests targets.
+3. Add your Apple team membership in the Signing & Capabilities for the ExchangeRates, ExchangeRatesTests and ExchangeRatesUITests targets.
 
-3. Add your API key of the https://currencylayer.com/ website in the Xcode project following this path: 
+4. Add your API key of the https://currencylayer.com/ website in the Xcode project following this path: 
 
 - ExchangeRates project folder
 - SupportingFiles
