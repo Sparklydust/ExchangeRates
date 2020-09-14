@@ -59,6 +59,7 @@
 		2A964F1D2508F3E300EB7D6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A964F1C2508F3E300EB7D6C /* Preview Assets.xcassets */; };
 		2A964F202508F3E300EB7D6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A964F1E2508F3E300EB7D6C /* LaunchScreen.storyboard */; };
 		2AAB8E81250F62FF009EA345 /* RatesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAB8E80250F62FF009EA345 /* RatesViewModelTests.swift */; };
+		2AAB8E85250F8621009EA345 /* LocalizedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAB8E84250F8621009EA345 /* LocalizedTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,7 @@
 		2A964F262508F3E300EB7D6C /* ExchangeRatesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExchangeRatesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A964F2C2508F3E300EB7D6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AAB8E80250F62FF009EA345 /* RatesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewModelTests.swift; sourceTree = "<group>"; };
+		2AAB8E84250F8621009EA345 /* LocalizedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				2A49F1BF250926AC005A3985 /* Tools */,
+				2AAB8E83250F85E2009EA345 /* Localizables */,
 				2A49F249250BA084005A3985 /* Service */,
 				2A2E0B18250EC2DD002A06EF /* ViewModels */,
 			);
@@ -657,6 +660,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		2AAB8E83250F85E2009EA345 /* Localizables */ = {
+			isa = PBXGroup;
+			children = (
+				2AAB8E84250F8621009EA345 /* LocalizedTests.swift */,
+			);
+			path = Localizables;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -846,6 +857,7 @@
 				2A49F1D92509F2AA005A3985 /* MockURLSession.swift in Sources */,
 				2AAB8E81250F62FF009EA345 /* RatesViewModelTests.swift in Sources */,
 				2A49F1EC250A0E80005A3985 /* MockURLSessionDataTask.swift in Sources */,
+				2AAB8E85250F8621009EA345 /* LocalizedTests.swift in Sources */,
 				2A2E0B1A250EC325002A06EF /* FavoritesViewModelTests.swift in Sources */,
 				2A49F1C1250926D0005A3985 /* NetworkAPIManagerTests.swift in Sources */,
 				2A49F1E7250A0563005A3985 /* NetworkRequestTests.swift in Sources */,
