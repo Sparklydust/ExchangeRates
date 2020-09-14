@@ -104,6 +104,71 @@ class RatesViewModelTests: XCTestCase {
 
     sut.setupCurrency()
 
-    XCTAssertEqual(sut.currency, expected)
+    XCTAssertEqual(expected, sut.currency)
+  }
+
+  func testRatesViewModel_userTapOnStarToSaveAFavoriteRate_twoRatesAreSavedInCoreData() throws {
+    let fakeData = "USDAFN"
+    _ = mockCoreDataService.save(symbol: "USDAED")
+
+    sut.favoriteStarIsTapped(for: fakeData)
+
+    let fetchRates = mockCoreDataService.fetch()
+    let expected = 2
+
+    XCTAssertEqual(expected, fetchRates.count)
+  }
+
+  func testRatesViewModel_userTapOnStarToDeleteAFavoriteRate_savedRatesOnDeviceLeftIsOneObjectInCoreData() throws {
+    let fakeData = "USDAFN"
+    _ = mockCoreDataService.save(symbol: "USDAED")
+    _ = mockCoreDataService.save(symbol: fakeData)
+
+    sut.isFavorited = true
+
+    sut.favoriteStarIsTapped(for: fakeData)
+
+    let fetchRates = mockCoreDataService.fetch()
+    let expected = 1
+
+    XCTAssertEqual(expected, fetchRates.count)
+  }
+
+  func testRatesViewModel_symbolIsSavedInCoreData_methodCheckIfDataIsInDevice_returnTrue() throws {
+    let fakeData = "USDAFN"
+    _ = mockCoreDataService.save(symbol: fakeData)
+
+    sut.checkForSaved(fakeData)
+
+    XCTAssertTrue(sut.isFavorited)
+  }
+
+  func testRatesViewModel_symbolIsNotSavedInCoreData_methodCheckIfDataIsInDevice_returnFalse() throws {
+    let fakeData = "USDAFN"
+
+    sut.checkForSaved(fakeData)
+
+    XCTAssertFalse(sut.isFavorited)
+  }
+
+  func testRatesViewModel_triggerCoreDataError_showCoreDataErrorValueIsTrue() throws {
+    sut.triggerCoreDataError()
+
+    XCTAssertTrue(sut.showCoreDataError)
+  }
+
+  func testRatesViewModel_triggerCoreDataCrash_showCoreDataCrashValueIsTrue() throws {
+    sut.triggerCoreDataCrash()
+
+    XCTAssertTrue(sut.showCoreDataCrash)
+  }
+
+  func testRatesViewModel_valueFromRatesQuotesIsFormattedToCurrency_returnDoubleWithCurrencyFormat() throws {
+    let fakePrice = 23.45
+
+    let result = sut.populateFormatted(fakePrice)
+    let expected = "$23.45"
+
+    XCTAssertEqual(expected, result)
   }
 }

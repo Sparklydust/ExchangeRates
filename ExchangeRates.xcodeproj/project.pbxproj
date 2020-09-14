@@ -356,7 +356,7 @@
 		2A49F1BF250926AC005A3985 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				2A49F1C0250926D0005A3985 /* NetworkAPIManagerTests.swift */,
+				2AAB8E82250F7E41009EA345 /* Network */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -647,6 +647,14 @@
 				2A49F1DE250A00C0005A3985 /* Fakes */,
 			);
 			path = ExchangeRatesTests;
+			sourceTree = "<group>";
+		};
+		2AAB8E82250F7E41009EA345 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2A49F1C0250926D0005A3985 /* NetworkAPIManagerTests.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
