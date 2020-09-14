@@ -31,7 +31,7 @@ final class NetworkAPIManager {
   ///
   class func retrieve(_ plistKey: NetworkPlistKey, _ plistValue: NetworkPlistValue) -> String {
 
-    guard let filePath = Bundle.main.path(forResource: "Network", ofType: "plist"),
+    guard let filePath = Bundle.main.path(forResource: "NetworkIronFX", ofType: "plist"),
       let plist = NSDictionary(contentsOfFile: filePath) else { return String() }
 
     let key = plist.object(forKey: plistKey.rawValue) as? Dictionary<String, String>
