@@ -22,7 +22,7 @@ class NetworkRequestTests: XCTestCase {
   }
 
   override func tearDownWithError() throws {
-    subscriptions = nil
+    subscriptions = []
     expectation = nil
     try super.tearDownWithError()
   }
@@ -50,7 +50,7 @@ class NetworkRequestTests: XCTestCase {
       })
       .store(in: &subscriptions)
 
-    wait(for: [expectation], timeout: 0.1)
+    wait(for: [expectation], timeout: 1)
   }
 
   func testNetworkRequest_mockURLSessionAddServerErrorAsResponse_returnNetworkErrorInvalidResponse() throws {
@@ -76,7 +76,7 @@ class NetworkRequestTests: XCTestCase {
       })
       .store(in: &subscriptions)
 
-    wait(for: [expectation], timeout: 0.1)
+    wait(for: [expectation], timeout: 1)
   }
 
   func testNetworkRequest_mockURLSessionAddNilValues_returnComletionWithFailure() throws {
@@ -94,6 +94,6 @@ class NetworkRequestTests: XCTestCase {
           XCTAssertNil(value) })
       .store(in: &subscriptions)
 
-    wait(for: [expectation], timeout: 0.1)
+    wait(for: [expectation], timeout: 1)
   }
 }

@@ -180,7 +180,7 @@ extension RatesViewModel {
   /// request in RatesView.
   ///
   func cancelUpstreamRatesTimer() {
-    self.isLoading = false
+    isLoading = false
     showTryAgainButton = true
     disconnectUpstreamRatesTimer()
   }

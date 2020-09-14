@@ -38,7 +38,10 @@ extension FavoritesViewModel {
   ///
   func downloadFavoritesLiveRates() {
     let fetchRates = coreDataService.fetch()
-    guard !fetchRates.isEmpty else { return }
+    guard !fetchRates.isEmpty else {
+      showActivityIndicator(false)
+      return
+    }
 
     NetworkRequest<RatesData>(.live).download()
       .sink(
@@ -151,7 +154,7 @@ extension FavoritesViewModel {
   /// request in FavoriteView.
   ///
   func cancelUpstreamFavoritesTimer() {
-    self.isLoading = false
+    showActivityIndicator(false)
     showTryAgainButton = true
     disconnectUpstreamFavoritesTimer()
   }
